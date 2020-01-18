@@ -6,16 +6,6 @@ import * as sapper from '@sapper/server';
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
-function one(req, res, next) {
-	req.hello = 'world';
-	next();
-  }
-  
-  function two(req, res, next) {
-	req.foo = '...needs better demo 😔';
-	next();
-  }
-
 express() // You can also use Express
 	.use(
 		compression({ threshold: 0 }),
@@ -23,7 +13,7 @@ express() // You can also use Express
 		sapper.middleware()
 	)
 	.get('/users/:id', (req, res) => {
-		console.log(`~> Hello, ${req.hello}`);
+		console.log('Endpoint hit!')
 		res.end(`User: ${req.params.id}`);
 	  })
 	.listen(PORT, err => {
