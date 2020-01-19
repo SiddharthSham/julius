@@ -1,22 +1,25 @@
 <template>
   <div class="container">
-    <div class="content">
-      <h1 class="title has-text-centered">
+    <div>
+      <h1 class="main-title has-text-centered">
         Julius
       </h1>
-      <h2 class="subtitle has-text-centered">
+      <h2 class="main-subtitle has-text-centered">
         An online Elective Management System
       </h2>
     </div>
     <div class="buttons">
-      <div class="button is-link is-light is-rounded">Sign Up</div>
-      <div class="button is-link is-light is-rounded">Log In &rarr;</div>
+      <button class="button is-info is-light is-rounded">
+        <nuxt-link to='/auth/register'>Sign Up</nuxt-link>
+      </button>
+      <button class="button is-link is-light is-rounded">
+        <a href="">Log In &rarr;</a>
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
 
 }
@@ -34,22 +37,6 @@ export default {
 .buttons {
   padding: 1rem 0;
 }
-.content .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: calc(5rem + 1vw);
-  color: #35495e;
-  letter-spacing: 1px;
-}
 
-.content .subtitle {
-  font-weight: 300;
-  font-size: calc(2rem + 0.5vw);
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
 
 </style>

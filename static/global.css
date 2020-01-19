@@ -1,0 +1,16 @@
+.main-title {
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+  font-size: calc(5rem + 1vw);
+  color: #35495e;
+  letter-spacing: 1px;
+}
+
+.main-subtitle {
+  font-weight: 300;
+  font-size: calc(2rem + 0.5vw);
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
