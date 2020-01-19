@@ -1,72 +1,55 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        julius
+    <div class="content">
+      <h1 class="title has-text-centered">
+        Julius
       </h1>
-      <h2 class="subtitle">
+      <h2 class="subtitle has-text-centered">
         An online Elective Management System
       </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+    </div>
+    <div class="buttons">
+      <div class="button is-link is-light is-rounded">Sign Up</div>
+      <div class="button is-link is-light is-rounded">Log In &rarr;</div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 
 export default {
-  components: {
-    Logo
-  }
+
 }
 </script>
 
 <style>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  min-height: 100vh;
 }
 
-.title {
+.buttons {
+  padding: 1rem 0;
+}
+.content .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: calc(5rem + 1vw);
   color: #35495e;
   letter-spacing: 1px;
 }
 
-.subtitle {
+.content .subtitle {
   font-weight: 300;
-  font-size: 42px;
+  font-size: calc(2rem + 0.5vw);
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
 }
 
-.links {
-  padding-top: 15px;
-}
 </style>
