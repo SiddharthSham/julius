@@ -4,7 +4,7 @@
       <h1 class="main-title has-text-centered">
         Julius
       </h1>
-      <h2 class="main-subtitle has-text-centered">
+      <h2 class="main-subtitle has-text-centered is-hidden-mobile">
         An online Elective Management System
       </h2>
     </div>
