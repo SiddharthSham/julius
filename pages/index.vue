@@ -9,34 +9,35 @@
       </h2>
     </div>
     <div class="buttons">
-      <button class="button is-link is-light is-rounded">
-        <nuxt-link to='/auth/register'>Sign Up</nuxt-link>
-      </button>
-      <button class="button is-link is-light is-rounded">
-        <nuxt-link to='/auth/register'>Log In &rarr;</nuxt-link>
-      </button>
+      <nuxt-link class="button is-link is-light is-rounded" to='/auth/register'>
+        Sign Up
+      </nuxt-link>
+      <nuxt-link  class="button is-link is-light is-rounded" to='/auth/login'>
+        Log In &rarr;
+      </nuxt-link>
+
     </div>
   </div>
 </template>
 
 <script>
-export default {
+  export default {
 
-}
+  }
+
 </script>
 
 <style>
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
 
-.buttons {
-  padding: 1rem 0;
-}
-
+  .buttons {
+    padding: 1rem 0;
+  }
 
 </style>

@@ -2,20 +2,12 @@
   <div class="hero is-fullheight">
     <div class="columns">
       <div class="column is-4 banner">
-        <h1 class="is-size-1 has-text-centered">Register</h1>
-        <p class="content has-text-centered is-size-5 is-hidden-mobile">Prepare to supercharge your education by
-          choosing
-          the right electives.</p>
+        <h1 class="is-size-1 has-text-centered">Login</h1>
+        <p class="content has-text-centered is-size-5 is-hidden-mobile">
+          Welcome back to Julius 👋</p>
       </div>
       <div class="column form">
         <label class="label">Details</label>
-
-        <div class="field">
-          <!-- <label class="label">Name</label> -->
-          <div class="control">
-            <input class="input" type="text" placeholder="Your name">
-          </div>
-        </div>
 
         <div class="field">
           <!-- <label class="label">Username</label> -->
@@ -38,32 +30,9 @@
           </div>
         </div>
 
-        <div class="field pad-top">
-          <label class="label">Subject</label>
+        <div class="field is-grouped">
           <div class="control">
-            <div class="select">
-              <select>
-                <option>Choose your subject</option>
-                <option>Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="field pad-top">
-          <div class="control">
-            <label class="checkbox">
-              <input type="checkbox">
-              I agree to the <a href="#">terms and conditions</a>
-            </label>
-          </div>
-        </div>
-
-        <div class="field is-grouped ">
-          <div class="control">
-            <button class="button is-link is-light is-rounded">Submit &rarr;</button>
+            <button class="button is-link is-light is-rounded">Login &rarr;</button>
           </div>
           <div class="control">
             <nuxt-link class="button is-danger is-light is-rounded" to='/'>
