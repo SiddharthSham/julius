@@ -14,3 +14,7 @@
   word-spacing: 5px;
   padding-bottom: 15px;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

@@ -9,11 +9,11 @@
       </h2>
     </div>
     <div class="buttons">
-      <button class="button is-info is-light is-rounded">
+      <button class="button is-link is-light is-rounded">
         <nuxt-link to='/auth/register'>Sign Up</nuxt-link>
       </button>
       <button class="button is-link is-light is-rounded">
-        <a href="">Log In &rarr;</a>
+        <nuxt-link to='/auth/register'>Log In &rarr;</nuxt-link>
       </button>
     </div>
   </div>

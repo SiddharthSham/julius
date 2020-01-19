@@ -30,6 +30,13 @@
           </div>
         </div>
 
+        <div class="field">
+          <!-- <label class="label">Email</label> -->
+          <div class="control">
+            <input class="input" type="password" placeholder="Password ">
+          </div>
+        </div>
+
         <div class="field pad-top">
           <label class="label">Subject</label>
           <div class="control">

@@ -44,6 +44,7 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/auth',
     [
       'nuxt-fire',
       {
@@ -67,6 +68,13 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+  },
+  /*
+  ** Auth module configuration
+  ** See https://auth.nuxtjs.org/
+  */
+  auth: {
+    // Options
   },
   /*
   ** Build configuration
