@@ -1,6 +1,5 @@
 import * as sapper from '@sapper/app';
-import '../static/global.scss'
-
+import '../node_modules/bulma/css/bulma.min.css'
 
 sapper.start({
 	target: document.querySelector('#sapper')
