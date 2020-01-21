@@ -38,18 +38,22 @@
           </div>
         </div>
 
-        <div class="field pad-top">
-          <label class="label">Subject</label>
+        <div class="field">
+          <!-- <label class="label">Email</label> -->
           <div class="control">
-            <div class="select">
-              <select>
-                <option>Choose your subject</option>
-                <option>Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
-              </select>
-            </div>
+            <input class="input" type="text" placeholder="Roll Number ">
           </div>
+        </div>
+
+        <div class="control pad-top">
+          <label class="radio">
+            <input type="radio" name="answer">
+            Student
+          </label>
+          <label class="radio">
+            <input type="radio" name="answer">
+            Teacher
+          </label>
         </div>
 
         <div class="field pad-top">
@@ -90,12 +94,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* max-height: 100vh; */
   }
 
   .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 5rem 0;
   }
 
   .field {

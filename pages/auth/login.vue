@@ -7,26 +7,19 @@
           Welcome back to Julius 👋</p>
       </div>
       <div class="column form">
-        <label class="label">Details</label>
+        <label class="label">Credentials</label>
 
         <div class="field">
-          <!-- <label class="label">Username</label> -->
+          <!-- <label class="label">Email</label> -->
           <div class="control">
-            <input class="input" type="text" placeholder="Username">
+            <input class="input" type="text" placeholder="Username/Email ">
           </div>
         </div>
 
         <div class="field">
           <!-- <label class="label">Email</label> -->
           <div class="control">
-            <input class="input" type="email" placeholder="Email ">
-          </div>
-        </div>
-
-        <div class="field">
-          <!-- <label class="label">Email</label> -->
-          <div class="control">
-            <input class="input" type="password" placeholder="Password ">
+            <input class="input" type="password" placeholder="Password">
           </div>
         </div>
 
@@ -38,6 +31,9 @@
             <nuxt-link class="button is-danger is-light is-rounded" to='/'>
               Cancel
             </nuxt-link>
+          </div>
+          <div class="control float-right">
+            <button class="button is-light is-rounded">Forgot Password?</button>
           </div>
         </div>
       </div>
@@ -105,6 +101,10 @@
 
   .pad-top {
     padding-top: 2rem;
+  }
+
+  .float-right {
+    margin-left: auto;
   }
 
 </style>
