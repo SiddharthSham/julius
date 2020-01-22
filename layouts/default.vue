@@ -1,7 +1,6 @@
 <template>
   <div>
-    <Nav/>
-    <nuxt />
+    <nuxt/>
   </div>
 </template>
 
@@ -9,10 +8,4 @@
 </style>
 
 <script>
-import Nav from '~/components/Nav.vue'
-export default {
-  components: {
-    Nav
-  }
-}
 </script>

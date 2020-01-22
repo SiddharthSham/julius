@@ -38,6 +38,14 @@
 .sidenav {
     position: sticky;
     position: -webkit-sticky;
-    top: 2rem;
+    top: 6rem;
+}
+.menu-list a {
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.menu-list a:hover {
+  background: #00ffff1a;
+  color: black;
 }
 </style>
