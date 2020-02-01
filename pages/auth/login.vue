@@ -50,7 +50,7 @@
         email: "",
         password: "",
         signIn: false,
-        forgot: false
+        forgot: false,
       }
     },
     methods: {
@@ -59,7 +59,6 @@
         fireAuth.signInWithEmailAndPassword(this.email, this.password)
         .then(data => {
           console.log('Sign in successful!');
-          console.log(data);
           this.$router.push('/dashboard')
         })
         .catch(err => console.log(err))
