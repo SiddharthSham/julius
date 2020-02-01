@@ -9,7 +9,7 @@
           <div class="box pad-top">
             <div class="level">
               <div class="level-left">
-            <h3 class="is-size-5">👋 Hi {{ name }}! What would you like to do today?</h3>
+            <h3 class="is-size-5">👋 Hi {{ this.$store.state.user.data.email }}! What would you like to do today?</h3>
               </div>
               <div class="level-right">
                 <div class="buttons">
@@ -32,21 +32,7 @@ import { fireDb } from '@/services/firebase';
     layout: 'student',
     components: {
       Sidemenu
-    },
-    data() {
-      return {
-        name: ""
-      }
-    },
-    mounted() {
-      let ref = fireDb.collection('users').doc('hWLsyiGXJ6dvZwaGZajtNxTdWEa2');
-      ref.get().then(function(doc) {  
-        if (doc.exists) {
-          this.name = doc.data().name;
-        }
-      });
     }
-
   }
 
 </script>
