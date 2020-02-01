@@ -81,7 +81,7 @@
 </template>
 
 <script>
-  import { fireAuth } from '@/services/firebase';
+  import { fireAuth, fireDb } from '@/services/firebase';
 
     export default {
         data(){
@@ -96,13 +96,38 @@
         methods : {
             handleSubmit(){
               if (this.password.length > 0) {
-                fireAuth.createUserWithEmailAndPassword(this.email, this.password)
-                .then(res => {
-                  console.log('User created!')
-                  console.log(res)
-                  this.$router.push("/dashboard")
-                })
-                .catch(err => console.log(err))
+                    // this.$http.get('http://localhost:3000/auth/login', {
+                    //     name: this.name,
+                    //     username: this.username,
+                    //     email: this.email,
+                    //     password: this.password,
+                    //     rollno: this.rollno 
+                    // })
+                    fireAuth.createUserWithEmailAndPassword(this.email, this.password).then(function(){
+                      console.log("Authentication Details stored")})
+                      .catch((err) => {
+                      console.log(err);  
+                    });
+                    
+                    fireDb.collection("users").doc(this.email).set({
+                        name: this.name,
+                        username: this.username,
+                        email: this.email, 
+                        password: this.password,
+                        rollno: this.rollno
+                        }).then(function() {
+                        console.log("Document successfully written!");
+                        })
+                        .catch(function(error) {
+                        console.error("Error writing document: ", error);
+                        });
+                    // this.$router.push("/dashboard")
+                    // .then(response => {
+
+                    // // })
+                    // .catch(function (error) {
+                    //     console.error(error.response);
+                    // });
                 }
             }
         }
