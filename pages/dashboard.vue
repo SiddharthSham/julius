@@ -42,9 +42,6 @@ import Sidemenu from '~/components/Sidemenu.vue'
 .dash {
     height: 300vh;
 }
-.sidenav {
-  padding:0;
-}
 .pad-top {
   margin-top: 2.5rem;
 }

@@ -12,6 +12,9 @@
 
     <div id="navbar" class="navbar-menu">
       <div class="navbar-start">
+        <div class="navbar-item">
+          <input class="input" type="text" placeholder="Search">
+        </div>
       </div>
 
       <div class="navbar-end">
@@ -23,7 +26,7 @@
           Help
         </a>
         <div class="navbar-item">
-          <nuxt-link to="/" class="button is-danger is-light is-rounded">
+          <nuxt-link to="/" class="button is-danger  is-outlined">
             Log Out
           </nuxt-link>
         </div>
