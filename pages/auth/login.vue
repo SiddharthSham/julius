@@ -57,7 +57,8 @@
           console.log('Sign in successful!');
           console.log(data);
           this.$router.push('/dashboard')
-        }).catch( err => console.log(err))
+        })
+        .catch(err => console.log(err))
       }
     }
   }

@@ -102,10 +102,7 @@
                   console.log(res)
                   this.$router.push("/dashboard")
                 })
-                .catch((err) => {
-                  console.log(err);
-                })
-                    // 
+                .catch(err => console.log(err))
                 }
             }
         }
