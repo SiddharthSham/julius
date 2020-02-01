@@ -7,7 +7,7 @@
           Welcome back to Julius 👋</p>
       </div>
       <div class="column form">
-        <label class="label">Credentials</label>
+        <label class="label">Your Credentials:</label>
 
         <div class="field">
           <!-- <label class="label">Email</label> -->
@@ -25,7 +25,7 @@
 
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link is-light is-rounded" @click="login">Login &rarr;</button>
+            <button class="button is-link is-light is-rounded" :class="{ 'is-loading': signIn }" @click="login">Login &rarr;</button>
           </div>
           <div class="control">
             <nuxt-link class="button is-danger is-light is-rounded" to='/'>
@@ -33,7 +33,7 @@
             </nuxt-link>
           </div>
           <div class="control float-right">
-            <button class="button is-light is-rounded">Forgot Password?</button>
+            <button class="button is-light is-rounded " :class="{ 'is-loading': forgot }">Forgot Password?</button>
           </div>
         </div>
       </div>
@@ -48,11 +48,14 @@
     data() {
       return {
         email: "",
-        password: ""
+        password: "",
+        signIn: false,
+        forgot: false
       }
     },
     methods: {
       login() {
+        this.signIn = true
         fireAuth.signInWithEmailAndPassword(this.email, this.password)
         .then(data => {
           console.log('Sign in successful!');
