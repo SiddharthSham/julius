@@ -40,7 +40,7 @@ import { fireDb } from '@/services/firebase';
     },
     mounted() {
       let ref = fireDb.collection('users').doc('hWLsyiGXJ6dvZwaGZajtNxTdWEa2');
-      ref.get().then(function(doc) {
+      ref.get().then(function(doc) {  
         if (doc.exists) {
           this.name = doc.data().name;
         }

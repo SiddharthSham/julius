@@ -81,7 +81,7 @@
 </template>
 
 <script>
-  import { fireAuth } from '@/services/firebase';
+  import { fireAuth, fireDb } from '@/services/firebase';
 
     export default {
         data(){
@@ -106,9 +106,24 @@
                     //     password: this.password,
                     //     rollno: this.rollno 
                     // })
-                    fireAuth.createUserWithEmailAndPassword(this.email, this.password).catch((err) => {
-                      console.log(err);
-                    })
+                    fireAuth.createUserWithEmailAndPassword(this.email, this.password).then(function(){
+                      console.log("Authentication Details stored")})
+                      .catch((err) => {
+                      console.log(err);  
+                    });
+                    
+                    fireDb.collection("users").doc(this.email).set({
+                        name: this.name,
+                        username: this.username,
+                        email: this.email, 
+                        password: this.password,
+                        rollno: this.rollno
+                        }).then(function() {
+                        console.log("Document successfully written!");
+                        })
+                        .catch(function(error) {
+                        console.error("Error writing document: ", error);
+                        });
                     // this.$router.push("/dashboard")
                     // .then(response => {
 
