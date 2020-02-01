@@ -53,13 +53,11 @@
     methods: {
       login() {
         fireAuth.signInWithEmailAndPassword(this.email, this.password)
-        .then((data) => {
+        .then(data => {
+          console.log('Sign in successful!');
           console.log(data);
-        }).catch(
-          (err) => {
-            console.log(err);
-          }
-        )
+          this.$router.push('/dashboard')
+        }).catch( err => console.log(err))
       }
     }
   }

@@ -95,27 +95,17 @@
         },
         methods : {
             handleSubmit(){
-              // if(this.password.length == 0)
-              //   e.preventDefault()
-
               if (this.password.length > 0) {
-                    // this.$http.get('http://localhost:3000/auth/login', {
-                    //     name: this.name,
-                    //     username: this.username,
-                    //     email: this.email,
-                    //     password: this.password,
-                    //     rollno: this.rollno 
-                    // })
-                    fireAuth.createUserWithEmailAndPassword(this.email, this.password).catch((err) => {
-                      console.log(err);
-                    })
-                    // this.$router.push("/dashboard")
-                    // .then(response => {
-
-                    // // })
-                    // .catch(function (error) {
-                    //     console.error(error.response);
-                    // });
+                fireAuth.createUserWithEmailAndPassword(this.email, this.password)
+                .then(res => {
+                  console.log('User created!')
+                  console.log(res)
+                  this.$router.push("/dashboard")
+                })
+                .catch((err) => {
+                  console.log(err);
+                })
+                    // 
                 }
             }
         }
