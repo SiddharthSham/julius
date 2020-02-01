@@ -28,8 +28,10 @@
 <script>
 import Sidemenu from '~/components/Sidemenu.vue';
 import { fireDb } from '@/services/firebase';
+
   export default {
     layout: 'student',
+    middleware: 'auth',
     components: {
       Sidemenu
     }

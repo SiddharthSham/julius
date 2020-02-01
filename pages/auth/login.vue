@@ -19,7 +19,7 @@
         <div class="field">
           <!-- <label class="label">Email</label> -->
           <div class="control">
-            <input class="input" type="password" placeholder="Password" v-model="password">
+            <input class="input" type="password" placeholder="Password" v-model="password" @keyup.enter="login">
           </div>
         </div>
 

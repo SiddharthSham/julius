@@ -26,7 +26,7 @@
           Help
         </a>
         <div class="navbar-item">
-          <button @click="logout" class="button is-danger is-outlined">
+          <button @click="logout" class="button is-danger is-outlined" :class="{ 'is-loading': exit }">
             Log Out
           </button>
         </div>
@@ -40,8 +40,14 @@
 
   export default {
     name: 'Nav',
+    data() {
+      return {
+        exit: false
+      }
+    },
     methods: {
       logout() {
+        this.exit = true
         fireAuth.signOut()
         .then(() => {
           console.log('User signed out!')
