@@ -33,7 +33,7 @@
             </nuxt-link>
           </div>
           <div class="control float-right">
-            <button class="button is-light is-rounded " :class="{ 'is-loading': forgot }">Forgot Password?</button>
+            <nuxt-link to='/auth/reset' class="button is-light is-rounded">Forgot Password?</nuxt-link>
           </div>
         </div>
       </div>
