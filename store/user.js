@@ -30,7 +30,8 @@ export const actions = {
     if (user) {
       commit("setUserData", {
         //   displayName: user.displayName,
-        email: user.email
+        email: user.email,
+        name: user.displayName
       });
     } else {
       commit("setUserData", null);

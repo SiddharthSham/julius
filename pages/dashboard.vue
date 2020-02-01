@@ -9,7 +9,7 @@
           <div class="box pad-top">
             <div class="level">
               <div class="level-left">
-            <h3 class="is-size-5">👋 Hi {{ this.$store.state.user.data.email }}! What would you like to do today?</h3>
+            <h3 class="is-size-5 name">👋 Hi {{ this.$store.state.user.data.name }}! What would you like to do today?</h3>
               </div>
               <div class="level-right">
                 <div class="buttons">
@@ -47,5 +47,8 @@ import { fireDb } from '@/services/firebase';
 }
 .pad-top {
   margin-top: 2.5rem;
+}
+.name {
+  text-transform: capitalize;
 }
 </style>

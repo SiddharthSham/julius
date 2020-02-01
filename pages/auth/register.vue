@@ -65,9 +65,10 @@
           </div>
         </div>
 
-        <div class="field is-grouped ">
+        <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link is-light is-rounded" :class="{ 'is-loading': submitted }" @click="handleSubmit">Submit &rarr;</button>
+            <button class="button is-link is-light is-rounded" :class="{ 'is-loading': submitted }"
+              @click="handleSubmit">Submit &rarr;</button>
           </div>
           <div class="control">
             <nuxt-link class="button is-danger is-light is-rounded" to='/'>
@@ -103,26 +104,37 @@
         if (this.password.length > 0) {
           fireAuth.createUserWithEmailAndPassword(this.email, this.password)
             .then((res) => {
-              console.log("Authentication Details stored", res)
+              console.log("Registered!", res)
+              
+              fireAuth.currentUser.updateProfile({
+                displayName: this.name,
+              })
+              .then(function () {
+                console.log("Update successful")
+              })
+              .catch(function (error) {
+                console.err(error)
+              });
+              fireDb.collection("users").doc(this.email).set({
+                  name: this.name,
+                  username: this.username,
+                  email: this.email,
+                  password: this.password,
+                  rollno: this.rollno
+                })
+                .then(() => {
+                  console.log("Details stored!");
+                  this.$router.push("/dashboard")
+                })
+                .catch((err) => {
+                  console.error("Error writing document: ", error);
+                });
             })
             .catch((err) => {
               console.log(err);
             })
 
-          fireDb.collection("users").doc(this.email).set({
-              name: this.name,
-              username: this.username,
-              email: this.email,
-              password: this.password,
-              rollno: this.rollno
-            })
-            .then(() => {
-              console.log("Document successfully written!");
-              this.$router.push("/dashboard")
-            })
-            .catch((err) => {
-              console.error("Error writing document: ", error);
-            });
+
         }
       }
     }
