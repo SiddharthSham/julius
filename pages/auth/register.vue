@@ -13,35 +13,35 @@
         <div class="field">
           <!-- <label class="label">Name</label> -->
           <div class="control">
-            <input class="input" type="text" placeholder="Your name">
+            <input name="name" class="input" type="text" placeholder="Your name" v-model="name">
           </div>
         </div>
 
         <div class="field">
           <!-- <label class="label">Username</label> -->
           <div class="control">
-            <input class="input" type="text" placeholder="Username">
+            <input name="username" class="input" type="text" placeholder="Username" v-model="username">
           </div>
         </div>
 
         <div class="field">
           <!-- <label class="label">Email</label> -->
           <div class="control">
-            <input class="input" type="email" placeholder="Email ">
+            <input name="email" class="input" type="email" placeholder="Email " v-model="email">
           </div>
         </div>
 
         <div class="field">
           <!-- <label class="label">Email</label> -->
           <div class="control">
-            <input class="input" type="password" placeholder="Password ">
+            <input name="password" class="input" type="password" placeholder="Password " v-model="password">
           </div>
         </div>
 
         <div class="field">
           <!-- <label class="label">Email</label> -->
           <div class="control">
-            <input class="input" type="text" placeholder="Roll Number ">
+            <input name="rollno" class="input" type="text" placeholder="Roll Number " v-model="rollno">
           </div>
         </div>
 
@@ -67,7 +67,7 @@
 
         <div class="field is-grouped ">
           <div class="control">
-            <button class="button is-link is-light is-rounded">Submit &rarr;</button>
+            <button class="button is-link is-light is-rounded" @click="handleSubmit">Submit &rarr;</button>
           </div>
           <div class="control">
             <nuxt-link class="button is-danger is-light is-rounded" to='/'>
@@ -81,10 +81,45 @@
 </template>
 
 <script>
-  export default {
+  import { fireAuth } from '@/services/firebase';
 
-  }
+    export default {
+        data(){
+            return {
+                name : "",
+                username : "",
+                email : "",
+                password : "",
+                rollno : ""
+            }
+        },
+        methods : {
+            handleSubmit(){
+              // if(this.password.length == 0)
+              //   e.preventDefault()
 
+              if (this.password.length > 0) {
+                    // this.$http.get('http://localhost:3000/auth/login', {
+                    //     name: this.name,
+                    //     username: this.username,
+                    //     email: this.email,
+                    //     password: this.password,
+                    //     rollno: this.rollno 
+                    // })
+                    fireAuth.createUserWithEmailAndPassword(this.email, this.password).catch((err) => {
+                      console.log(err);
+                    })
+                    // this.$router.push("/dashboard")
+                    // .then(response => {
+
+                    // // })
+                    // .catch(function (error) {
+                    //     console.error(error.response);
+                    // });
+                }
+            }
+        }
+    }
 </script>
 
 <style>
