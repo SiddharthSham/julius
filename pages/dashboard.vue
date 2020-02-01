@@ -9,7 +9,7 @@
           <div class="box pad-top">
             <div class="level">
               <div class="level-left">
-            <h3 class="is-size-5">👋 Hi {{user}}! What would you like to do today?</h3>
+            <h3 class="is-size-5">👋 Hi {{ this.$store.state.store.user.isAuth }}! What would you like to do today?</h3>
               </div>
               <div class="level-right">
                 <div class="buttons">
@@ -38,9 +38,6 @@ import { fireAuth } from '@/services/firebase';
       return {
         user: ''
       }
-    },
-    mounted() {
-      this.user = fireAuth.currentUser.email;
     }
 
   }
