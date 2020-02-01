@@ -9,7 +9,7 @@
           <div class="box pad-top">
             <div class="level">
               <div class="level-left">
-            <h3 class="is-size-5">👋 Hi Siddharth! What would you like to do today?</h3>
+            <h3 class="is-size-5">👋 Hi {{user}}! What would you like to do today?</h3>
               </div>
               <div class="level-right">
                 <div class="buttons">
@@ -27,10 +27,20 @@
 
 <script>
 import Sidemenu from '~/components/Sidemenu.vue'
+import { fireAuth } from '@/services/firebase';
+
   export default {
     layout: 'student',
     components: {
       Sidemenu
+    },
+    data() {
+      return {
+        user: ''
+      }
+    },
+    mounted() {
+      this.user = fireAuth.currentUser.email;
     }
 
   }
@@ -41,6 +51,7 @@ import Sidemenu from '~/components/Sidemenu.vue'
 
 .dash {
     height: 300vh;
+    overflow-x: scroll;
 }
 .pad-top {
   margin-top: 2.5rem;

@@ -43,6 +43,7 @@
 
 <script>
   import { fireAuth } from '@/services/firebase';
+  
   export default {
     data() {
       return {

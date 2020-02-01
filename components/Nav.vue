@@ -26,9 +26,9 @@
           Help
         </a>
         <div class="navbar-item">
-          <nuxt-link to="/" class="button is-danger  is-outlined">
+          <button @click="logout" class="button is-danger is-outlined">
             Log Out
-          </nuxt-link>
+          </button>
         </div>
       </div>
     </div>
@@ -36,8 +36,20 @@
 </template>
 
 <script>
+  import { fireAuth } from '@/services/firebase';
+
   export default {
-    name: 'Nav'
+    name: 'Nav',
+    methods: {
+      logout() {
+        fireAuth.signOut()
+        .then(() => {
+          console.log('User signed out!')
+          this.$router.push('/auth/login')
+        })
+        .catch(err => console.log(err))
+      } 
+    }
 
   }
 
