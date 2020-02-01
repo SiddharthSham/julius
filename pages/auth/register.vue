@@ -67,7 +67,7 @@
 
         <div class="field is-grouped ">
           <div class="control">
-            <button class="button is-link is-light is-rounded" @click="handleSubmit">Submit &rarr;</button>
+            <button class="button is-link is-light is-rounded" :class="{ 'is-loading': submitted }" @click="handleSubmit">Submit &rarr;</button>
           </div>
           <div class="control">
             <nuxt-link class="button is-danger is-light is-rounded" to='/'>
@@ -93,11 +93,13 @@
         username: "",
         email: "",
         password: "",
-        rollno: ""
+        rollno: "",
+        submitted: false
       }
     },
     methods: {
       handleSubmit() {
+        this.submitted = true
         if (this.password.length > 0) {
           fireAuth.createUserWithEmailAndPassword(this.email, this.password)
             .then((res) => {
