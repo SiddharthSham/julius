@@ -25,7 +25,7 @@
 
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link is-light is-rounded">Login &rarr;</button>
+            <nuxt-link to="/dashboard" class="button is-link is-light is-rounded">Login &rarr;</nuxt-link>
           </div>
           <div class="control">
             <nuxt-link class="button is-danger is-light is-rounded" to='/'>

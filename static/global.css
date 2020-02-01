@@ -15,9 +15,9 @@
   padding-bottom: 15px;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}
 
 h1, h2, h3, h4, h5, h6, p, a {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
