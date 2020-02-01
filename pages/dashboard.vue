@@ -9,7 +9,7 @@
           <div class="box pad-top">
             <div class="level">
               <div class="level-left">
-            <h3 class="is-size-5">👋 Hi {{ this.$store.state.store.user.isAuth }}! What would you like to do today?</h3>
+            <h3 class="is-size-5">👋 Hi {{ name }}! What would you like to do today?</h3>
               </div>
               <div class="level-right">
                 <div class="buttons">
@@ -26,9 +26,8 @@
 </template>
 
 <script>
-import Sidemenu from '~/components/Sidemenu.vue'
-import { fireAuth } from '@/services/firebase';
-
+import Sidemenu from '~/components/Sidemenu.vue';
+import { fireDb } from '@/services/firebase';
   export default {
     layout: 'student',
     components: {
@@ -36,8 +35,16 @@ import { fireAuth } from '@/services/firebase';
     },
     data() {
       return {
-        user: ''
+        name: ""
       }
+    },
+    mounted() {
+      let ref = fireDb.collection('users').doc('hWLsyiGXJ6dvZwaGZajtNxTdWEa2');
+      ref.get().then(function(doc) {  
+        if (doc.exists) {
+          this.name = doc.data().name;
+        }
+      });
     }
 
   }
