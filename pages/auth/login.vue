@@ -12,20 +12,20 @@
         <div class="field">
           <!-- <label class="label">Email</label> -->
           <div class="control">
-            <input class="input" type="text" placeholder="Username/Email ">
+            <input class="input" type="text" placeholder="Username/Email " v-model="email">
           </div>
         </div>
 
         <div class="field">
           <!-- <label class="label">Email</label> -->
           <div class="control">
-            <input class="input" type="password" placeholder="Password">
+            <input class="input" type="password" placeholder="Password" v-model="password">
           </div>
         </div>
 
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link is-light is-rounded">Login &rarr;</button>
+            <button class="button is-link is-light is-rounded" @click="login">Login &rarr;</button>
           </div>
           <div class="control">
             <nuxt-link class="button is-danger is-light is-rounded" to='/'>
@@ -42,8 +42,26 @@
 </template>
 
 <script>
+  import { fireAuth } from '@/services/firebase';
   export default {
-
+    data() {
+      return {
+        email: "",
+        password: ""
+      }
+    },
+    methods: {
+      login() {
+        fireAuth.signInWithEmailAndPassword(this.email, this.password)
+        .then((data) => {
+          console.log(data);
+        }).catch(
+          (err) => {
+            console.log(err);
+          }
+        )
+      }
+    }
   }
 
 </script>
