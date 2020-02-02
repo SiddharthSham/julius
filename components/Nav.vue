@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <span class="main-title is-size-3 pad">Julius</span>
+      <nuxt-link to="/dashboard">
+        <span class="main-title is-size-3 pad">Julius</span>
+      </nuxt-link>
 
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
         <span aria-hidden="true"></span>

@@ -1,4 +1,3 @@
-
 import { fireAuth } from '@/services/firebase.js'
 
 export default context => {

@@ -29,7 +29,6 @@ export const actions = {
     commit("setAuth", user !== null);
     if (user) {
       commit("setUserData", {
-        //   displayName: user.displayName,
         email: user.email,
         name: user.displayName
       });

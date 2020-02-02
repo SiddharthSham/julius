@@ -1,7 +1,9 @@
 <template>
   <div>
     <Nav/>
-    <nuxt class="has-navbar-fixed-top has-navbar-fixed-bottom"/>
+    <div class="has-navbar-fixed-top has-navbar-fixed-bottom">
+      <nuxt />
+    </div>
     <Bottomnav/>
   </div>
 </template>

@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar is-fixed-bottom is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item">
+      <nuxt-link to="/profile" class="navbar-item">
         <span class="has-text-weight-bold">My Profile</span>
-      </a>
+      </nuxt-link>
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="bottom-nav">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -13,7 +13,6 @@
 
     <div id="bottom-nav" class="navbar-menu">
       <div class="navbar-start">
-
 
         <a class="navbar-item is-family-monospace">
           Game Theory <span class="left-pad tag is-success is-rounded">3</span>
