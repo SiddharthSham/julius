@@ -78,6 +78,18 @@
         </div>
       </div>
     </div>
+    <modal name="error" classes="modal is-active" @before-close="signIn = false">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="section">
+          <h3 class="title has-text-white">Oh no!</h3>
+          <p class="subtitle is-size-4 has-text-white">{{ this.err }}</p>
+          <div class="buttons">
+            <button class="button is-danger is-rounded" @click="cancel">Close</button>
+          </div>
+        </div>
+      </div>
+    </modal>
   </div>
 </template>
 
@@ -95,26 +107,37 @@
         email: "",
         password: "",
         rollno: "",
-        submitted: false
+        submitted: false,
+        err: null
       }
     },
     methods: {
+      error() {
+        this.submitted = true
+        this.$modal.show('error')
+      },
+      cancel() {
+        this.$modal.hide('error')
+        this.submitted = false
+        this.err = null
+      },
       handleSubmit() {
         this.submitted = true
-        if (this.password.length > 0) {
+        if (this.password.length > 6) {
           fireAuth.createUserWithEmailAndPassword(this.email, this.password)
-            .then((res) => {
+            .then(res => {
               console.log("Registered!", res)
-              
               fireAuth.currentUser.updateProfile({
-                displayName: this.name,
-              })
-              .then(function () {
-                console.log("Update successful")
-              })
-              .catch(function (error) {
-                console.err(error)
-              });
+                  displayName: this.name,
+                })
+                .then(() => {
+                  console.log("Update successful")
+                })
+                .catch(error => {
+                  this.err = error
+                  this.error()
+                  console.err(error)
+                });
               fireDb.collection("users").doc(this.email).set({
                   name: this.name,
                   username: this.username,
@@ -127,14 +150,19 @@
                   this.$router.push("/dashboard")
                 })
                 .catch((err) => {
+                  this.err = error
+                  this.error()
                   console.error("Error writing document: ", error);
                 });
             })
             .catch((err) => {
+              this.err = error
+              this.error()
               console.log(err);
             })
-
-
+        } else {
+          this.err = "Password needs to be atleast 6 characters long!"
+          this.error()
         }
       }
     }
