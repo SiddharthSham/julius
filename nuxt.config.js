@@ -30,8 +30,7 @@ module.exports = {
   */
   plugins: [
     '~/plugins/fireAuth',
-    '~/plugins/vueModal',
-    '~/plugins/fireUser',
+    '~/plugins/vueModal'
   ],
   /*
   ** Nuxt.js dev-modules

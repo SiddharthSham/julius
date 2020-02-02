@@ -59,7 +59,7 @@
         <div class="field pad-top">
           <div class="control">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" v-model="checked">
               I agree to the <a href="#">terms and conditions</a>
             </label>
           </div>
@@ -67,7 +67,7 @@
 
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link is-light is-rounded" :class="{ 'is-loading': submitted }"
+            <button class="button is-link is-light is-rounded" :disabled="!formComplete" :class="{ 'is-loading': submitted }"
               @click="handleSubmit">Submit &rarr;</button>
           </div>
           <div class="control">
@@ -108,7 +108,8 @@
         password: "",
         rollno: "",
         submitted: false,
-        err: null
+        err: null,
+        checked: false
       }
     },
     methods: {
@@ -129,6 +130,7 @@
               console.log("Registered!", res)
               fireAuth.currentUser.updateProfile({
                   displayName: this.name,
+                  email: this.email
                 })
                 .then(() => {
                   console.log("Update successful")
@@ -141,8 +143,6 @@
               fireDb.collection("users").doc(this.email).set({
                   name: this.name,
                   username: this.username,
-                  email: this.email,
-                  password: this.password,
                   rollno: this.rollno
                 })
                 .then(() => {
@@ -156,7 +156,7 @@
                 });
             })
             .catch((err) => {
-              this.err = error
+              this.err = err
               this.error()
               console.log(err);
             })
@@ -164,6 +164,11 @@
           this.err = "Password needs to be atleast 6 characters long!"
           this.error()
         }
+      }
+    },
+    computed: {
+      formComplete: function () {
+        return this.checked
       }
     }
   }
