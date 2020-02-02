@@ -29,7 +29,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/fireAuth'
+    '~/plugins/fireAuth',
+    '~/plugins/vueModal',
   ],
   /*
   ** Nuxt.js dev-modules

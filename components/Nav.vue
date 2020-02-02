@@ -26,35 +26,62 @@
           Help
         </a>
         <div class="navbar-item">
-          <button @click="logout" class="button is-danger is-outlined" :class="{ 'is-loading': exit }">
+          <button @click="confirmation" class="button is-danger is-outlined" :class="{ 'is-loading': exit }">
             Log Out
           </button>
         </div>
       </div>
     </div>
+    <modal name="confirm" classes="modal is-active" @before-close="exit = false">
+      <!-- <div class="modal is-active"> -->
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="section">
+          <h3 class="title has-text-white">Confirmation</h3>
+          <p class="subtitle is-size-4 has-text-white">Are you sure you want to exit?</p>
+          <div class="buttons">
+            <button class="button is-success is-rounded" :class="{ 'is-loading': confirmed }" @click="logout">Yes, I
+              want to sign-out</button>
+            <button class="button is-danger is-rounded" @click="cancel">Nope, cancel</button>
+          </div>
+        </div>
+      </div>
+
+    </modal>
   </nav>
 </template>
 
 <script>
-  import { fireAuth } from '@/services/firebase';
+  import {
+    fireAuth
+  } from '@/services/firebase';
 
   export default {
     name: 'Nav',
     data() {
       return {
-        exit: false
+        exit: false,
+        confirmed: false
       }
     },
     methods: {
-      logout() {
+      confirmation() {
         this.exit = true
+        this.$modal.show('confirm')
+      },
+      cancel() {
+        this.$modal.hide('confirm')
+        this.exit = false
+      },
+      logout() {
+        this.confirmed = true
         fireAuth.signOut()
-        .then(() => {
-          console.log('User signed out!')
-          this.$router.push('/auth/login')
-        })
-        .catch(err => console.log(err))
-      } 
+          .then(() => {
+            console.log('User signed out!')
+            this.$router.push('/auth/login')
+          })
+          .catch(err => console.log(err))
+      }
     }
 
   }
