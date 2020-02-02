@@ -21,3 +21,7 @@ h1, h2, h3, h4, h5, h6, p, a {
   font-weight: 300;
   color: #526488;
 }
+
+::-webkit-scrollbar {
+  /* display: none; */
+}
