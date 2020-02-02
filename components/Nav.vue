@@ -33,7 +33,6 @@
       </div>
     </div>
     <modal name="confirm" classes="modal is-active" @before-close="exit = false">
-      <!-- <div class="modal is-active"> -->
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="section">
@@ -46,7 +45,6 @@
           </div>
         </div>
       </div>
-
     </modal>
   </nav>
 </template>
