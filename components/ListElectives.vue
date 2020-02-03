@@ -76,7 +76,7 @@
   }
 
   .pad-top {
-    padding-top: 1rem;
+    margin-top: 1rem;
   }
 
   .panel-block {
