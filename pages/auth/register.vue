@@ -67,7 +67,7 @@
               <label class="form-switch">
                 <input type="checkbox" v-model="checked">
                 <i></i>
-                I agree to the <a href="#">Terms and Conditions</a> 
+                I agree to the <a href="#" class="has-text-weight-normal">Terms and Conditions</a> 
               </label>
             </div>
           </div>
