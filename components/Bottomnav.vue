@@ -15,13 +15,13 @@
       <div class="navbar-start">
 
         <a class="navbar-item is-family-monospace">
-          Game Theory <span class="left-pad tag is-success is-rounded">3</span>
+          Grades <span class="left-pad tag is-success is-rounded">3</span>
         </a>
         <a class="navbar-item is-family-monospace">
-          Cryptography
+          Attendance
         </a>
         <a class="navbar-item is-family-monospace">
-          Android
+          Timetable
         </a>
       </div>
 

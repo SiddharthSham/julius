@@ -1,83 +1,89 @@
 <template>
   <div class="hero is-fullheight">
     <div class="hero-body">
-    <div class="columns">
-      <div class="column is-4 banner">
-        <h1 class="is-size-1 has-text-centered">Register</h1>
-        <p class="content has-text-centered is-size-5 is-hidden-mobile">Prepare to supercharge your education by
-          choosing
-          the right electives.</p>
-      </div>
-      <div class="column form">
-        <label class="label">Details</label>
+      <div class="columns">
+        <div class="column is-4 banner">
+          <h1 class="is-size-1 has-text-centered">Register</h1>
+          <p class="content has-text-centered is-size-5 is-hidden-mobile">Prepare to supercharge your education by
+            choosing
+            the right electives.</p>
+        </div>
+        <div class="column form">
+          <label class="label">Details</label>
 
-        <div class="field">
-          <!-- <label class="label">Name</label> -->
-          <div class="control">
-            <input name="name" class="input" type="text" placeholder="Your name" v-model="name">
+          <div class="field">
+            <!-- <label class="label">Name</label> -->
+            <div class="control">
+              <input name="name" class="input" type="text" placeholder="Your name" v-model="name">
+            </div>
+          </div>
+
+          <div class="field">
+            <!-- <label class="label">Username</label> -->
+            <div class="control">
+              <input name="username" class="input" type="text" placeholder="Username" v-model="username">
+            </div>
+          </div>
+
+          <div class="field">
+            <!-- <label class="label">Email</label> -->
+            <div class="control">
+              <input name="email" class="input" type="email" placeholder="Email " v-model="email">
+            </div>
+          </div>
+
+          <div class="field">
+            <!-- <label class="label">Email</label> -->
+            <div class="control">
+              <input name="password" class="input" type="password" placeholder="Password " v-model="password">
+            </div>
+          </div>
+
+          <div class="field">
+            <!-- <label class="label">Email</label> -->
+            <div class="control">
+              <input name="rollno" class="input" type="text" placeholder="Roll Number " v-model="rollno">
+            </div>
+          </div>
+
+          <div class="control pad-top">
+            <div class="cntr">
+
+              <label for="opt1" class="radio">
+                <input type="radio" name="rdo" id="opt1" class="hidden" />
+                <span class="label"></span>Student
+              </label>
+
+              <label for="opt2" class="radio">
+                <input type="radio" name="rdo" id="opt2" class="hidden" />
+                <span class="label"></span>Teacher
+              </label>
+
+            </div>
+          </div>
+
+          <div class="field pad-top">
+            <div class="control">
+              <label class="form-switch">
+                <input type="checkbox" v-model="checked">
+                <i></i>
+                I agree to the <a href="#">Terms and Conditions</a> 
+              </label>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link is-light is-rounded" :disabled="!formComplete"
+                :class="{ 'is-loading': submitted }" @click="handleSubmit">Submit &rarr;</button>
+            </div>
+            <div class="control">
+              <nuxt-link class="button is-danger is-light is-rounded" to='/'>
+                Cancel
+              </nuxt-link>
+            </div>
           </div>
         </div>
-
-        <div class="field">
-          <!-- <label class="label">Username</label> -->
-          <div class="control">
-            <input name="username" class="input" type="text" placeholder="Username" v-model="username">
-          </div>
-        </div>
-
-        <div class="field">
-          <!-- <label class="label">Email</label> -->
-          <div class="control">
-            <input name="email" class="input" type="email" placeholder="Email " v-model="email">
-          </div>
-        </div>
-
-        <div class="field">
-          <!-- <label class="label">Email</label> -->
-          <div class="control">
-            <input name="password" class="input" type="password" placeholder="Password " v-model="password">
-          </div>
-        </div>
-
-        <div class="field">
-          <!-- <label class="label">Email</label> -->
-          <div class="control">
-            <input name="rollno" class="input" type="text" placeholder="Roll Number " v-model="rollno">
-          </div>
-        </div>
-
-        <div class="control pad-top">
-          <label class="radio">
-            <input type="radio" name="answer">
-            Student
-          </label>
-          <label class="radio">
-            <input type="radio" name="answer">
-            Teacher
-          </label>
-        </div>
-
-        <div class="field pad-top">
-          <div class="control">
-            <label class="checkbox">
-              <input type="checkbox" v-model="checked">
-              I agree to the <a href="#">terms and conditions</a>
-            </label>
-          </div>
-        </div>
-
-        <div class="field is-grouped">
-          <div class="control">
-            <button class="button is-link is-light is-rounded" :disabled="!formComplete" :class="{ 'is-loading': submitted }"
-              @click="handleSubmit">Submit &rarr;</button>
-          </div>
-          <div class="control">
-            <nuxt-link class="button is-danger is-light is-rounded" to='/'>
-              Cancel
-            </nuxt-link>
-          </div>
-        </div>
-      </div>
       </div>
     </div>
     <modal name="error" classes="modal is-active" @before-close="signIn = false">
@@ -235,7 +241,7 @@
   }
 
   .pad-top {
-    padding-top: 0.75rem;
+    padding-top: 1.5rem;
   }
 
 </style>
