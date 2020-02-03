@@ -13,7 +13,9 @@
 
     <div id="bottom-nav" class="navbar-menu">
       <div class="navbar-start">
-
+        <nuxt-link to="/dashboard" class="navbar-item  is-family-monospace">
+          Dashboard
+        </nuxt-link>
         <a class="navbar-item is-family-monospace">
           Grades <span class="left-pad tag is-success is-rounded">3</span>
         </a>

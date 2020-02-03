@@ -55,4 +55,7 @@
 </script>
 
 <style scoped>
+.pad-top-s {
+  padding-top: 1rem;
+}
 </style>

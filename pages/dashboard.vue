@@ -20,13 +20,13 @@
             </div>
           </div>
 
-          <!-- <div class="pad-top">
+          <div class="pad-top">
             <Upcoming/>
           </div>
 
           <div class="pad-top">
             <Resources/>
-          </div> -->
+          </div>
 
           <div class="pad-top">
             <ListElectives/>

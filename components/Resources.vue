@@ -10,8 +10,8 @@
                     <p class="subtitle is-family-monospace has-text-grey is-size-6">Kiran S Raj</p>
 
                     <div class="buttons pad-top-s">
-                        <div class="button is-light is-rounded is-link">View</div>
-                        <div class="button is-rounded is-link is-outlined">Download</div>
+                        <div class="button is-light is-rounded is-primary">View</div>
+                        <div class="button is-light is-rounded is-link">Download</div>
                     </div>
                 </div>
             </div>
@@ -23,8 +23,8 @@
                     <p class="subtitle is-family-monospace has-text-grey is-size-6">GA Dhanush</p>
 
                     <div class="buttons pad-top-s">
-                        <div class="button is-light is-rounded is-link">View</div>
-                        <div class="button is-rounded is-link is-outlined">Download</div>
+                        <div class="button is-light is-rounded is-primary">View</div>
+                        <div class="button is-light is-rounded is-link">Download</div>
                     </div>
                 </div>
             </div>
@@ -36,8 +36,8 @@
                     <p class="subtitle is-family-monospace has-text-grey is-size-6">Ram Newton</p>
 
                     <div class="buttons pad-top-s">
-                        <div class="button is-light is-rounded is-link">View</div>
-                        <div class="button is-rounded is-link is-outlined">Download</div>
+                        <div class="button is-light is-rounded is-primary">View</div>
+                        <div class="button is-light is-rounded is-link">Download</div>
                     </div>
                 </div>
             </div>
@@ -52,5 +52,7 @@
 </script>
 
 <style scoped>
-
+.pad-top-s {
+    padding-top: 1rem;
+}
 </style>
