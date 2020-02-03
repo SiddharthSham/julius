@@ -5,19 +5,24 @@
         <!-- <div class="column is-3 banner"></div> -->
         <div class="column">
           <div class="container is-fluid center">
+
             <h1 class="main-title is-size-1 has-text-left">Your profile</h1>
-            <table class="table is-hoverable is-fullwidth">
-              <tbody>
-                <tr v-for="(value, name) in this.$store.state.user.data" :key="name">
-                  <th class="capitalize">{{ name }}:</th>
-                  <td>{{ value }}</td>
-                </tr>
-              </tbody>
-            </table>
+
+            <div class="panel">
+                <div class="panel-block" v-for="(value, name) in this.$store.state.user.data" :key="name">
+                  <div class="level">
+                    <div class="level-left capitalize main-subtitle is-size-6 has-text-weight-bold">{{ name }}:</div>
+                    <div class="level-right has-text-centered">{{ value }}</div>
+                  </div>
+                </div>
+            </div>
+
             <div class="buttons">
-              <div class="button is-danger is-rounded is-light" :class="{ 'is-loading': delUser }"
+              <div class="button is-info is-rounded is-light">Edit Details</div>
+              <div class="button is-danger is-outlined is-rounded" :class="{ 'is-loading': delUser }"
                 @click="confirmation">Delete Account</div>
             </div>
+
           </div>
         </div>
       </div>
@@ -108,8 +113,23 @@
     min-height: 75vh;
   }
 
-  .table {
+  .panel {
+    width: 50%;
     margin-top: 2rem;
   }
+  .level {
+    width: 100%;
+  }
+  .level-right {
+    justify-content: flex-start;
+  }
+  .panel-block {
+    padding: 1.25rem 1rem;
+  }
+
+  .main-subtitle {
+    padding-bottom: 0;
+  }
+
 
 </style>

@@ -8,7 +8,7 @@
             choosing
             the right electives.</p>
         </div>
-        <form class="column form">
+        <form class="column form" @submit="handleSubmit">
           <label class="label">Details</label>
 
           <div class="field">
@@ -49,13 +49,13 @@
           <div class="control pad-top">
             <div class="cntr">
 
-              <label for="opt1" class="radio">
-                <input type="radio" name="rdo" id="opt1" class="hidden" />
+              <label for="opt1" class="radio" >
+                <input type="radio" name="rdo" v-model="category" value="student" id="opt1" class="hidden" />
                 <span class="label"></span>Student
               </label>
 
               <label for="opt2" class="radio">
-                <input type="radio" name="rdo" id="opt2" class="hidden" />
+                <input type="radio" name="rdo" id="opt2" v-model="category" value="teacher" class="hidden" />
                 <span class="label"></span>Teacher
               </label>
 
@@ -75,7 +75,7 @@
           <div class="field is-grouped">
             <div class="control">
               <button type="submit" class="button is-link is-light is-rounded" :disabled="!formComplete"
-                :class="{ 'is-loading': submitted }" @click="handleSubmit">Submit &rarr;</button>
+                :class="{ 'is-loading': submitted }" >Submit &rarr;</button>
             </div>
             <div class="control">
               <nuxt-link class="button is-danger is-light is-rounded" to='/'>
@@ -115,6 +115,7 @@
         email: "",
         password: "",
         rollno: "",
+        category: '',
         submitted: false,
         err: null,
         checked: false
@@ -130,7 +131,8 @@
         this.submitted = false
         this.err = null
       },
-      handleSubmit() {
+      handleSubmit(event) {
+        event.preventDefault()
         this.submitted = true
         if (this.password.length > 6) {
           fireAuth.createUserWithEmailAndPassword(this.email, this.password)
@@ -151,7 +153,8 @@
               fireDb.collection("users").doc(this.email).set({
                   name: this.name,
                   username: this.username,
-                  rollno: this.rollno
+                  rollno: this.rollno,
+                  category: this.category
                 })
                 .then(() => {
                   console.log("Details stored!");

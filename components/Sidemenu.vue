@@ -46,6 +46,7 @@
 }
 .menu-list a:hover {
   background: #00ffff1a;
-  color: black;
+  font-weight: 400;
+  transition: font-weight 0.2s ease-in-out;
 }
 </style>

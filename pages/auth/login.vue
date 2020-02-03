@@ -34,7 +34,7 @@
             </nuxt-link>
           </div>
           <div class="control float-right">
-            <nuxt-link to='/auth/reset' class="button is-light is-rounded">Forgot Password?</nuxt-link>
+            <nuxt-link to='/auth/reset' class="button is-light is-warning is-outlined is-rounded">Forgot Password?</nuxt-link>
           </div>
         </div>
       </div>
