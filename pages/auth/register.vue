@@ -135,24 +135,6 @@
         event.preventDefault()
         this.submitted = true
         if (this.password.length > 6) {
-          var rad = document.getElementsByClassName('hidden');
-          var temp = "";
-          for( var i = 0 ; i < rad.length ; i++ )
-          {
-            if(rad[i].checked)
-            {
-              temp = rad[i].value;
-            }
-          }
-          if(temp == "teacher")
-          {
-            this.category = "teacher";
-          }
-
-          else
-          {
-            this.category = "student";
-          }
           fireAuth.createUserWithEmailAndPassword(this.email, this.password)
             .then(res => {
               console.log("Registered!", res)
