@@ -50,12 +50,12 @@
             <div class="cntr">
 
               <label for="opt1" class="radio" >
-                <input type="radio" name="rdo" v-model="category" value="student" id="opt1" class="hidden" />
+                <input type="radio" name="rdo" v-model="category" value="student" id="opt1" class="hidden"/>
                 <span class="label"></span>Student
               </label>
 
               <label for="opt2" class="radio">
-                <input type="radio" name="rdo" id="opt2" v-model="category" value="teacher" class="hidden" />
+                <input type="radio" name="rdo" id="opt2" v-model="category" value="teacher" class="hidden"/>
                 <span class="label"></span>Teacher
               </label>
 
@@ -135,6 +135,24 @@
         event.preventDefault()
         this.submitted = true
         if (this.password.length > 6) {
+          var rad = document.getElementsByClassName('hidden');
+          var temp = "";
+          for( var i = 0 ; i < rad.length ; i++ )
+          {
+            if(rad[i].checked)
+            {
+              temp = rad[i].value;
+            }
+          }
+          if(temp == "teacher")
+          {
+            this.category = "teacher";
+          }
+
+          else
+          {
+            this.category = "student";
+          }
           fireAuth.createUserWithEmailAndPassword(this.email, this.password)
             .then(res => {
               console.log("Registered!", res)
@@ -155,6 +173,7 @@
                   username: this.username,
                   rollno: this.rollno,
                   category: this.category
+
                 })
                 .then(() => {
                   console.log("Details stored!");
