@@ -73,13 +73,15 @@
         .catch(error => {
           this.confirmed = false
           console.log('Error deleting user:', error)
-          if (error.code == "auth/requires-recent-login"){
+          if (error.code == "auth/requires-recent-login") {
             let c = confirm('This action requires you to reauthenticate')
             if (c) {
               this.$router.push('/auth/login')
             } else {
               this.cancel()
             }
+          } else {
+            alert('Oh no: ', error.message)
           }
         });
       }

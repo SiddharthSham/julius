@@ -8,41 +8,41 @@
             choosing
             the right electives.</p>
         </div>
-        <div class="column form">
+        <form class="column form">
           <label class="label">Details</label>
 
           <div class="field">
             <!-- <label class="label">Name</label> -->
             <div class="control">
-              <input name="name" class="input" type="text" placeholder="Your name" v-model="name">
+              <input name="name" required class="input" type="text" placeholder="Your name" v-model="name">
             </div>
           </div>
 
           <div class="field">
             <!-- <label class="label">Username</label> -->
             <div class="control">
-              <input name="username" class="input" type="text" placeholder="Username" v-model="username">
+              <input name="username" required class="input" type="text" placeholder="Username" v-model="username">
             </div>
           </div>
 
           <div class="field">
             <!-- <label class="label">Email</label> -->
             <div class="control">
-              <input name="email" class="input" type="email" placeholder="Email " v-model="email">
+              <input name="email" required class="input" type="email" placeholder="Email " v-model="email">
             </div>
           </div>
 
           <div class="field">
             <!-- <label class="label">Email</label> -->
             <div class="control">
-              <input name="password" class="input" type="password" placeholder="Password " v-model="password">
+              <input name="password" required class="input" type="password" placeholder="Password " v-model="password">
             </div>
           </div>
 
           <div class="field">
             <!-- <label class="label">Email</label> -->
             <div class="control">
-              <input name="rollno" class="input" type="text" placeholder="Roll Number " v-model="rollno">
+              <input name="rollno" required class="input" type="text" placeholder="Roll Number " v-model="rollno">
             </div>
           </div>
 
@@ -74,7 +74,7 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link is-light is-rounded" :disabled="!formComplete"
+              <button type="submit" class="button is-link is-light is-rounded" :disabled="!formComplete"
                 :class="{ 'is-loading': submitted }" @click="handleSubmit">Submit &rarr;</button>
             </div>
             <div class="control">
@@ -83,7 +83,7 @@
               </nuxt-link>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
     <modal name="error" classes="modal is-active" @before-close="signIn = false">
@@ -91,7 +91,7 @@
       <div class="modal-content">
         <div class="section">
           <h3 class="title has-text-white">Oh no!</h3>
-          <p class="subtitle is-size-4 has-text-white">{{ this.err }}</p>
+          <p class="subtitle is-size-4 has-text-white">{{ err }}</p>
           <div class="buttons">
             <button class="button is-danger is-rounded" @click="cancel">Close</button>
           </div>
