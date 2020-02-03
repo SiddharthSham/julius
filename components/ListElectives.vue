@@ -1,7 +1,7 @@
 <template>
   <div class="elective-list">
     <div class="main-title is-size-3">Available Electives</div>
-    <article class="panel pad-top-s is-dark">
+    <article class="panel pad-top is-dark">
       <p class="panel-heading">
         Semester 6 - CSE
       </p>
@@ -70,9 +70,13 @@
 
 </script>
 
-<style>
+<style scoped>
   .list {
     max-width: 100%;
+  }
+
+  .pad-top {
+    padding-top: 1rem;
   }
 
   .panel-block {

@@ -43,7 +43,7 @@
 
 </script>
 
-<style>
+<style scoped>
   .left-pad {
     margin-left: 0.5rem;
   }

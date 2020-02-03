@@ -88,7 +88,7 @@
 
 </script>
 
-<style>
+<style scoped>
   .pad {
     padding: 0rem 1rem;
   }

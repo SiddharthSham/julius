@@ -34,7 +34,7 @@
 
 </script>
 
-<style>
+<style scoped>
 .sidenav {
     position: sticky;
     position: -webkit-sticky;
