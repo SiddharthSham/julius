@@ -20,12 +20,16 @@
             </div>
           </div>
 
-          <div class="pad-top">
+          <!-- <div class="pad-top">
             <Upcoming/>
           </div>
 
           <div class="pad-top">
             <Resources/>
+          </div> -->
+
+          <div class="pad-top">
+            <ListElectives/>
           </div>
 
         </div>
@@ -38,6 +42,7 @@
 import Sidemenu from '~/components/Sidemenu.vue';
 import Upcoming from '~/components/Upcoming.vue';
 import Resources from '~/components/Resources.vue';
+import ListElectives from '~/components/ListElectives.vue'
 import { fireDb } from '@/services/firebase';
 
   export default {
@@ -46,13 +51,14 @@ import { fireDb } from '@/services/firebase';
     components: {
       Sidemenu,
       Upcoming,
-      Resources
+      Resources,
+      ListElectives
     }
   }
 
 </script>
 
-<style>
+<style scoped>
 
 .dash {
     /* height: 300vh; */

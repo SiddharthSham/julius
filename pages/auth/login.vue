@@ -96,7 +96,7 @@
 
 </script>
 
-<style>
+<style scoped>
   .banner {
     background: #C4CCD4;
     display: flex;

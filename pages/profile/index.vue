@@ -30,7 +30,7 @@
 
 </script>
 
-<style>
+<style scoped>
   .banner {
     min-height: 85vh;
     overflow: hidden;

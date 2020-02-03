@@ -1,5 +1,6 @@
 <template>
   <div class="hero is-fullheight">
+    <div class="hero-body">
     <div class="columns">
       <div class="column is-4 banner">
         <h1 class="is-size-1 has-text-centered">Register</h1>
@@ -76,6 +77,7 @@
             </nuxt-link>
           </div>
         </div>
+      </div>
       </div>
     </div>
     <modal name="error" classes="modal is-active" @before-close="signIn = false">
@@ -175,7 +177,7 @@
 
 </script>
 
-<style>
+<style scoped>
   .banner {
     background: #C4CCD4;
     display: flex;
@@ -183,6 +185,10 @@
     justify-content: center;
     align-items: center;
     /* max-height: 100vh; */
+  }
+
+  .hero-body {
+    padding: 0;
   }
 
   .form {
@@ -229,7 +235,7 @@
   }
 
   .pad-top {
-    padding-top: 1.5rem;
+    padding-top: 0.75rem;
   }
 
 </style>
