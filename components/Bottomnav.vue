@@ -1,20 +1,13 @@
 <template>
-  <nav class="navbar is-fixed-bottom is-light" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <nuxt-link to="/profile" class="navbar-item">
-        <span class="has-text-weight-bold">My Profile</span>
-      </nuxt-link>
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="bottom-nav">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
+  <nav class="navbar is-fixed-bottom is-light is-hidden-mobile" role="navigation" aria-label="main navigation">
     <div id="bottom-nav" class="navbar-menu">
       <div class="navbar-start">
-        <nuxt-link to="/dashboard" class="navbar-item  is-family-monospace">
+        
+        <nuxt-link to="/dashboard" class="navbar-item is-family-monospace">
           Dashboard
+        </nuxt-link>
+        <nuxt-link to="/profile" class="navbar-item is-family-monospace">
+          My Profile
         </nuxt-link>
         <a class="navbar-item is-family-monospace">
           Grades <span class="left-pad tag is-success is-rounded">3</span>

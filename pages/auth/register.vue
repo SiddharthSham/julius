@@ -115,7 +115,7 @@
         email: "",
         password: "",
         rollno: "",
-        category: '',
+        category: "",
         submitted: false,
         err: null,
         checked: false

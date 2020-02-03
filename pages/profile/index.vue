@@ -51,6 +51,7 @@
     fireAuth
   } from '@/services/firebase';
 
+
   export default {
     layout: 'student',
     middleware: 'auth',
@@ -96,10 +97,6 @@
 </script>
 
 <style scoped>
-  .banner {
-    min-height: 85vh;
-    overflow: hidden;
-  }
 
   .capitalize {
     text-transform: capitalize;
