@@ -19,4 +19,11 @@ if (!firebase.apps.length) {
 const fireDb = firebase.firestore()
 const fireAuth = firebase.auth()
 
+fireDb.enablePersistence()
+  .then(() => {console.log('Persistence was set successfully!')})
+  .catch(err => {
+      console.log('Persistence failed with error:', err)
+  });
+  
+
 export {fireDb, fireAuth}
