@@ -50,12 +50,12 @@
             <div class="cntr">
 
               <label for="opt1" class="radio" >
-                <input type="radio" name="rdo" v-model="category" value="student" id="opt1" class="hidden"/>
+                <input type="radio" required name="category" v-model="category" value="student" id="opt1" class="hidden"/>
                 <span class="label"></span>Student
               </label>
 
               <label for="opt2" class="radio">
-                <input type="radio" name="rdo" id="opt2" v-model="category" value="teacher" class="hidden"/>
+                <input type="radio" required name="category" id="opt2" v-model="category" value="teacher" class="hidden"/>
                 <span class="label"></span>Teacher
               </label>
 

@@ -15,7 +15,7 @@ export default context => {
               store.commit('user/setUserData', doc.data())
               console.log("fireUser: Document data:", doc.data());
             } else {
-              console.log("fireUser: No such document!");
+              console.log("fireUser: No such document!", doc);
             }
           }).catch(function (error) {
             console.log("fireUser: Error getting document:", error);

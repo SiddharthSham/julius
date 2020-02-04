@@ -6,10 +6,14 @@
         Semester 6 - CSE
       </p>
 
-      <div class="panel-block">
+      <div v-if="loading" class="panel-block">
+        Loading...
+      </div>
+
+      <div v-for="course in electives" :key="course.course_code" class="panel-block">
         <div class="level">
           <div class="level-left">
-            Neural Networks and Deep Learning
+            {{ course.course_code }} - {{ course.title }}
           </div>
           <div class="level-right">
             <div class="buttons">
@@ -20,52 +24,32 @@
         </div>
       </div>
 
-      <div class="panel-block">
-        <div class="level">
-          <div class="level-left">
-            Game Theory
-          </div>
-          <div class="level-right">
-            <div class="buttons">
-              <button class="button is-light is-rounded is-primary">View details</button>
-              <button class="button is-light is-rounded is-info">Apply</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="panel-block">
-        <div class="level">
-          <div class="level-left">
-            Cryptography
-          </div>
-          <div class="level-right">
-            <div class="buttons">
-              <button class="button is-light is-rounded is-primary">View details</button>
-              <button class="button is-light is-rounded is-info">Apply</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="panel-block">
-        <div class="level">
-          <div class="level-left">
-            Android App Development
-          </div>
-          <div class="level-right">
-            <div class="buttons">
-              <button class="button is-light is-rounded is-primary">View details</button>
-              <button class="button is-light is-rounded is-info">Apply</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </article>
   </div>
 </template>
 
 <script>
+  import {
+    fireDb
+  } from '@/services/firebase';
+
   export default {
-    name: 'ListElectives'
+    name: 'ListElectives',
+    data() {
+      return {
+        electives: [],
+        loading: true
+      }
+    },
+    mounted() {
+      fireDb.collection("depts").doc('cse').collection('6').get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            this.electives.push(doc.data())
+            this.loading = false
+          });
+        });
+    }
   }
 
 </script>
