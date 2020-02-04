@@ -13,6 +13,7 @@
       <div v-for="course in electives" :key="course.course_code" class="panel-block">
         <div class="level">
           <div class="level-left">
+            <span class="tag is-rounded is-warning is-light pad-right"> {{ course.credits }} credits </span>
             {{ course.course_code }} - {{ course.title }}
           </div>
           <div class="level-right">
@@ -70,6 +71,10 @@
 
   .level {
     width: 100%;
+  }
+
+  .pad-right {
+    margin-right: 1rem;
   }
 
 </style>
