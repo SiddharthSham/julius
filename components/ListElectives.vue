@@ -19,7 +19,7 @@
           <div class="level-right">
             <div class="buttons">
               <button class="button is-light is-rounded is-primary">View details</button>
-              <button class="button is-light is-rounded is-info">Apply</button>
+              <button class="button is-light is-rounded is-info" @click="apply(course.course_code)">Apply</button>
             </div>
           </div>
         </div>
@@ -39,7 +39,15 @@
     data() {
       return {
         electives: [],
-        loading: true
+        loading: true,
+        clicked: false
+      }
+    },
+    methods: {
+      apply(course_code) {
+        console.log(course_code)
+        this.$store.commit('user/setChosenCourse', course_code)
+        this.$router.push('/apply/elective')
       }
     },
     mounted() {

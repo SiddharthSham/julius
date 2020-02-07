@@ -61,8 +61,6 @@ import { fireDb } from '@/services/firebase';
 <style scoped>
 
 .dash {
-    /* height: 300vh; */
-    overflow-x: scroll;
     padding-bottom: 5rem;
 }
 .pad-top {

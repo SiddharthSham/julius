@@ -48,7 +48,7 @@
 
 <script>
   import {
-    fireAuth
+    fireAuth, fireDb
   } from '@/services/firebase';
 
 
@@ -74,6 +74,14 @@
         this.confirmed = true
         fireAuth.currentUser.delete()
         .then(() => {
+          let email = this.$store.state.user.data.email
+          fireDb.collection('users').doc(email).delete()
+          .then(() => {
+            console.log('User info wiped successfully!')
+          })
+          .catch((err) => {
+            console.log('There was an error wiping database:', err)
+          })
           this.$router.push('/')
         })
         .catch(error => {

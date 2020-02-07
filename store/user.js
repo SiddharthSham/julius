@@ -1,6 +1,7 @@
 export const state = () => ({
     isAuth: false,
-    data: null
+    data: null,
+    chosenCourse: null
 })
 
 export const getters = {
@@ -10,6 +11,10 @@ export const getters = {
 
   user(state) {
     return state.data
+  },
+
+  chosenCourse(state) {
+    return state.chosenCourse
   }
 }
 
@@ -19,6 +24,10 @@ export const mutations = {
   },
   setUserData: (state, data) => {
     state.data = data;
+  },
+  setChosenCourse: (state, course_code) => {
+    console.log('Choice updated:', course_code)
+    state.chosenCourse = course_code;
   }
 }
 
