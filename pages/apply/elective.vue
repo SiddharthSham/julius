@@ -5,7 +5,7 @@
         <div class="column pad-top is-2 sidenav is-hidden-touch">
           <Sidemenu />
         </div>
-        <div class="column dash">
+        <div class="column dash" v-if="this.$store.state.user.chosenCourse">
           <div class="box pad-top">
             <div class="main-title is-size-3">Applying to: {{ this.$store.state.user.chosenCourse }}</div>
 
@@ -41,7 +41,7 @@
             </p>
 
             <div class="buttons">
-              <button class="button is-rounded is-light is-primary">Apply now</button>
+              <button class="button is-rounded is-light is-primary" @click="apply">Apply now</button>
               <nuxt-link to="/dashboard" class="button is-rounded is-light is-info ">
                 Go back
               </nuxt-link>
@@ -61,7 +61,7 @@
 
   export default {
     layout: 'student',
-    middleware: 'auth',
+    middleware: ['auth', 'electiveChosen'],
     components: {
       Sidemenu
     },
@@ -72,7 +72,6 @@
     },
     mounted() {
       let me = this
-      console.log(this.$store.state.user.chosenCourse)
       fireDb.collection("depts").doc('cse').collection('6').doc(this.$store.state.user.chosenCourse).get()
         .then(function (doc) {
           if (doc.exists) {
@@ -84,6 +83,22 @@
         }).catch(function (error) {
           console.log("Error getting document:", error);
         });
+    },
+    methods: {
+      apply() {
+        fireDb.collection('applications').doc('pending').get()
+          .then((doc) => {
+            if (doc.exists) {
+              console.log("Document data:", doc.data());
+            } else {
+              console.log("No such document!");
+            }
+          })
+          .catch(function (error) {
+            console.log("Error getting document:", error);
+          });
+
+      }
     }
   }
 
