@@ -18,8 +18,7 @@
           </div>
           <div class="level-right">
             <div class="buttons">
-              <button class="button is-light is-rounded is-primary">View details</button>
-              <button class="button is-light is-rounded is-info" @click="apply(course.course_code)">Apply</button>
+              <button class="button is-light is-rounded is-primary"  @click="view(course.course_code)">View details</button>
             </div>
           </div>
         </div>
@@ -44,8 +43,7 @@
       }
     },
     methods: {
-      apply(course_code) {
-        console.log(course_code)
+      view(course_code) {
         this.$store.commit('user/setChosenCourse', course_code)
         this.$router.push('/apply/elective')
       }

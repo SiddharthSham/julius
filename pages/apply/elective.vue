@@ -1,6 +1,7 @@
 <template>
   <section class="hero">
     <div class="hero-body">
+
       <div class="columns">
         <div class="column pad-top is-2 sidenav is-hidden-touch">
           <Sidemenu />
@@ -56,7 +57,8 @@
 <script>
   import Sidemenu from '~/components/Sidemenu.vue';
   import {
-    fireDb
+    fireDb,
+    fireAuth
   } from '@/services/firebase';
 
   export default {
@@ -86,20 +88,28 @@
     },
     methods: {
       apply() {
-        fireDb.collection('applications').doc('pending').get()
-          .then((doc) => {
-            if (doc.exists) {
-              console.log("Document data:", doc.data());
-            } else {
-              console.log("No such document!");
-            }
+        let course_id = this.$store.state.user.chosenCourse
+        let currentUser = fireAuth.currentUser.email
+        let timestamp =  Date.now()
+        let applicationData = {}
+        applicationData[currentUser] = {
+          "course_id": course_id,
+          "timestamp": timestamp
+        }
+        let me = this
+        console.log(applicationData)
+        fireDb.collection('applications').doc('pending').set({
+            applicationData
+          }, { merge: true })
+          .then(() => {
+            console.log('Applied succesfully to:', me.$store.state.user.chosenCourse)
           })
           .catch(function (error) {
-            console.log("Error getting document:", error);
+            console.log("Error applying to elective:", error);
           });
 
       }
-    }
+    },
   }
 
 </script>

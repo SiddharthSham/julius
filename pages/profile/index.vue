@@ -6,7 +6,7 @@
         <div class="column">
           <div class="container is-fluid center">
 
-            <h1 class="main-title is-size-1 has-text-left">Hi, {{ this.$store.state.user.data.name.split(' ')[0] }}! </h1>
+            <h1 class="main-title is-size-1 has-text-left capitalize">Hi, {{ this.$store.state.user.data.name.split(' ')[0] }}! </h1>
 
             <div class="panel">
                 <div class="panel-block" v-for="(value, name) in this.$store.state.user.data" :key="name">
@@ -134,6 +134,10 @@
 
   .main-subtitle {
     padding-bottom: 0;
+  }
+
+  .capitalize {
+    text-transform: capitalize;
   }
 
 
