@@ -6,6 +6,7 @@
           <Sidemenu/>
         </div>
         <div class="column dash">
+
           <div class="box pad-top">
             <div class="level">
               <div class="level-left">
@@ -18,6 +19,10 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="box pad-top">
+            <progress-steps/>
           </div>
 
           <div class="pad-top">
@@ -43,6 +48,7 @@ import Sidemenu from '~/components/Sidemenu.vue';
 import Upcoming from '~/components/Upcoming.vue';
 import Resources from '~/components/Resources.vue';
 import ListElectives from '~/components/ListElectives.vue'
+import ProgressSteps from '~/components/ProgressSteps.vue'
 import { fireDb } from '@/services/firebase';
 
   export default {
@@ -52,7 +58,8 @@ import { fireDb } from '@/services/firebase';
       Sidemenu,
       Upcoming,
       Resources,
-      ListElectives
+      ListElectives,
+      ProgressSteps
     }
   }
 
