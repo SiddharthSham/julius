@@ -42,7 +42,7 @@
             </p>
 
             <div class="buttons">
-              <button class="button is-rounded is-light is-primary" @click="apply">Apply now</button>
+              <button class="button is-rounded is-light is-primary" :class="{ 'is-loading': applying }" @click="apply">Apply now</button>
               <nuxt-link to="/dashboard" class="button is-rounded is-light is-info ">
                 Go back
               </nuxt-link>
@@ -51,6 +51,17 @@
         </div>
       </div>
     </div>
+    <modal name="application" classes="modal is-active" @before-close="signIn = false">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="section">
+          <p class="subtitle is-size-4 has-text-white">{{ this.status }}</p>
+          <div class="buttons">
+            <button class="button is-danger is-rounded" @click="cancel">Close</button>
+          </div>
+        </div>
+      </div>
+    </modal>
   </section>
 </template>
 
@@ -69,7 +80,9 @@
     },
     data() {
       return {
-        electiveData: null
+        electiveData: null,
+        applying: false,
+        status: ""
       }
     },
     mounted() {
@@ -87,25 +100,39 @@
         });
     },
     methods: {
+      modalizer() {
+        this.$modal.show('application')
+      },
+      cancel() {
+        this.$modal.hide('application')
+      },
       apply() {
+        this.applying = true
         let course_id = this.$store.state.user.chosenCourse
         let currentUser = fireAuth.currentUser.email
-        let timestamp =  Date.now()
+        let timestamp = Date.now()
         let applicationData = {}
         applicationData[currentUser] = {
           "course_id": course_id,
           "timestamp": timestamp
         }
         let me = this
-        console.log(applicationData)
         fireDb.collection('applications').doc('pending').set({
             applicationData
-          }, { merge: true })
+          }, {
+            merge: true
+          })
           .then(() => {
             console.log('Applied succesfully to:', me.$store.state.user.chosenCourse)
+            this.status = 'Application successfull!'
           })
           .catch(function (error) {
             console.log("Error applying to elective:", error);
+            this.status = 'Oh no! There was an error :('
+          })
+          .finally(() => {
+            this.modalizer()
+            this.applying = false
           });
 
       }
