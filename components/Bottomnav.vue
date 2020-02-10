@@ -9,15 +9,15 @@
         <nuxt-link to="/profile" class="navbar-item is-family-monospace">
           My Profile
         </nuxt-link>
-        <a class="navbar-item is-family-monospace">
-          Grades <span class="left-pad tag is-success is-rounded">3</span>
-        </a>
-        <a class="navbar-item is-family-monospace">
+        <nuxt-link to="/grades" class="navbar-item is-family-monospace">
+          Grades
+        </nuxt-link>
+        <nuxt-link to="/attendance" class="navbar-item is-family-monospace">
           Attendance
-        </a>
-        <a class="navbar-item is-family-monospace">
+        </nuxt-link>
+        <nuxt-link to="/timetable" class="navbar-item is-family-monospace">
           Timetable
-        </a>
+        </nuxt-link>
       </div>
 
       <div class="navbar-end">
