@@ -49,7 +49,7 @@
       }
     },
     mounted() {
-      fireDb.collection("depts").doc('cse').collection('6').get()
+      fireDb.collection("depts").doc('CSE').collection('6').get()
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
             this.electives.push(doc.data())

@@ -2,7 +2,7 @@
   <nav class="navbar is-fixed-bottom is-light is-hidden-mobile" role="navigation" aria-label="main navigation">
     <div id="bottom-nav" class="navbar-menu">
       <div class="navbar-start">
-        
+
         <nuxt-link to="/dashboard" class="navbar-item is-family-monospace">
           Dashboard
         </nuxt-link>
@@ -11,6 +11,7 @@
         </nuxt-link>
         <nuxt-link to="/grades" class="navbar-item is-family-monospace">
           Grades
+          <span class="tag is-success is-rounded left-pad">3</span>
         </nuxt-link>
         <nuxt-link to="/attendance" class="navbar-item is-family-monospace">
           Attendance

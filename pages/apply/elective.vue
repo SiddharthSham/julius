@@ -8,7 +8,7 @@
         </div>
         <div class="column dash" v-if="this.$store.state.user.chosenCourse">
           <div class="box pad-top">
-            <div class="main-title is-size-3">Applying to: {{ this.$store.state.user.chosenCourse }}</div>
+            <div class="main-title is-size-3">Applying to: {{ this.$store.state.user.chosenCourse }} - {{ electiveData.title }}</div>
 
             <div class="tags">
               <span class="tag is-warning is-light is-rounded">3 credits</span>
@@ -40,6 +40,9 @@
               sit voluptatibus in accusamus inventore. Dolore quam repellat laboriosam ipsam velit suscipit, eveniet
               maiores fuga quaerat!
             </p>
+
+            <h6 class="is-size-6 has-text-weight-bold">AVAILABLE SEATS: 60/100</h6>
+            <progress class="progress is-success pad-top-s" value="60" max="100">60%</progress>
 
             <div class="buttons">
               <button class="button is-rounded is-light is-primary" :class="{ 'is-loading': applying }" @click="apply">Apply now</button>
@@ -80,14 +83,17 @@
     },
     data() {
       return {
-        electiveData: null,
+        electiveData: {
+          title: 'loading..',
+          course_code: 'loading..'
+        },
         applying: false,
         status: ""
       }
     },
     mounted() {
       let me = this
-      fireDb.collection("depts").doc('cse').collection('6').doc(this.$store.state.user.chosenCourse).get()
+      fireDb.collection("depts").doc('CSE').collection('6').doc(this.$store.state.user.chosenCourse).get()
         .then(function (doc) {
           if (doc.exists) {
             console.log("Document data:", doc.data());
