@@ -38,7 +38,7 @@
 .sidenav {
     position: sticky;
     position: -webkit-sticky;
-    top: 6rem;
+    top: 5rem;
 }
 .menu-list a {
   border-bottom-right-radius: 15px;

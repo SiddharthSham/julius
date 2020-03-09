@@ -2,7 +2,9 @@
   <div>
     <Nav/>
     <div class="has-navbar-fixed-top has-navbar-fixed-bottom">
+      <div class="pad-top">
       <nuxt />
+      </div>
     </div>
     <Bottomnav/>
   </div>
@@ -21,3 +23,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.pad-top {
+  padding-top: 3.5rem;
+}
+</style>

@@ -3,11 +3,11 @@
     <div class="hero-body">
 
       <div class="columns">
-        <div class="column pad-top is-2 sidenav is-hidden-touch">
+        <div class="column is-2 sidenav is-hidden-touch">
           <Sidemenu />
         </div>
         <div class="column dash" v-if="this.$store.state.user.chosenCourse">
-          <div class="box pad-top">
+          <div class="box">
             <div class="main-title is-size-3">Applying to: {{ this.$store.state.user.chosenCourse }} - {{ electiveData.title }}</div>
 
             <div class="tags">

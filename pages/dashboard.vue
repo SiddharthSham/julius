@@ -7,7 +7,7 @@
         </div>
         <div class="column dash">
 
-          <div class="box pad-top">
+          <div class="box">
             <div class="level">
               <div class="level-left">
             <h3 class="is-size-5">👋 Hi <span class="name">{{ this.$store.state.user.data.name }}</span>! What would you like to do today?</h3>
