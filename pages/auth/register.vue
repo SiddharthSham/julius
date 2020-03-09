@@ -49,16 +49,61 @@
           <div class="control pad-top">
             <div class="cntr">
 
-              <label for="opt1" class="radio" >
-                <input type="radio" required name="category" v-model="category" value="student" id="opt1" class="hidden"/>
+              <label for="opt1" class="radio">
+                <input type="radio" required name="category" v-model="category" value="student" id="opt1"
+                  class="hidden" />
                 <span class="label"></span>Student
               </label>
 
               <label for="opt2" class="radio">
-                <input type="radio" required name="category" id="opt2" v-model="category" value="teacher" class="hidden"/>
+                <input type="radio" required name="category" id="opt2" v-model="category" value="teacher"
+                  class="hidden" />
                 <span class="label"></span>Teacher
               </label>
 
+            </div>
+          </div>
+
+          <div class="field is-grouped pad-top" v-if="category == 'student'">
+
+            <div class="control">
+              <div class="dropdown is-up" :class="dept_toggle?'is-active':''" @click="dept_toggle = !dept_toggle">
+                <div class="dropdown-trigger">
+                  <button type="button" class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <span>{{ department }}</span>
+                    <span class="icon is-small">
+                      &darr;
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                  <div class="dropdown-content">
+                    <div class="dropdown-item hoverable" v-for="i in ['CSE', 'ECE', 'EEE', 'Mech', 'Chem', 'Math']" :key="i">
+                      <p @click="department = i">{{ i }}</p> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="control">
+              <div class="dropdown is-up"  :class="sem_toggle?'is-active':''" @click="sem_toggle = !sem_toggle">
+                <div class="dropdown-trigger">
+                  <button type="button" class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <span>{{semester}}</span>
+                    <span class="icon is-small">
+                      &darr;
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                  <div class="dropdown-content">
+                    <div class="dropdown-item hoverable" v-for="i in [1,2,3,4,5,6,7,8]" :key="i">
+                      <p @click="semester = i">{{ i }}</p> 
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -67,7 +112,7 @@
               <label class="form-switch">
                 <input type="checkbox" v-model="checked">
                 <i></i>
-                I agree to the <a href="#" class="has-text-weight-normal">Terms and Conditions</a> 
+                I agree to the <a href="#" class="has-text-weight-normal">Terms and Conditions</a>
               </label>
             </div>
           </div>
@@ -75,7 +120,7 @@
           <div class="field is-grouped">
             <div class="control">
               <button type="submit" class="button is-link is-light is-rounded" :disabled="!formComplete"
-                :class="{ 'is-loading': submitted }" >Submit &rarr;</button>
+                :class="{ 'is-loading': submitted }">Submit &rarr;</button>
             </div>
             <div class="control">
               <nuxt-link class="button is-danger is-light is-rounded" to='/'>
@@ -110,15 +155,19 @@
   export default {
     data() {
       return {
-        name: "",
-        username: "",
-        email: "",
-        password: "",
-        rollno: "",
-        category: "",
+        name: null,
+        username: null,
+        email: null,
+        password: null,
+        rollno: null,
+        category: null,
         submitted: false,
         err: null,
-        checked: false
+        checked: false,
+        dept_toggle: false,
+        sem_toggle: false,
+        semester: 'Semester',
+        department: 'Department'
       }
     },
     methods: {
@@ -134,7 +183,7 @@
       handleSubmit(event) {
         event.preventDefault()
         this.submitted = true
-        if (this.password.length > 6) {
+        if (this.password.length > 6 && (this.name != null || this.email != null || this.username != null || this.rollno != null || this.category != null || this.semester != null || this.department != null)) {
           fireAuth.createUserWithEmailAndPassword(this.email, this.password)
             .then(res => {
               console.log("Registered!", res)
@@ -154,8 +203,9 @@
                   name: this.name,
                   username: this.username,
                   rollno: this.rollno,
-                  category: this.category
-
+                  category: this.category,
+                  semester: this.semester,
+                  department: this.department
                 })
                 .then(() => {
                   console.log("Details stored!");
@@ -173,7 +223,7 @@
               console.log(err);
             })
         } else {
-          this.err = "Password needs to be atleast 6 characters long!"
+          this.err = "Enter details correctly!"
           this.error()
         }
       }
@@ -246,6 +296,10 @@
 
   .pad-top {
     padding-top: 1.5rem;
+  }
+
+  .hoverable {
+    cursor: pointer;
   }
 
 </style>

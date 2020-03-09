@@ -110,6 +110,11 @@
     text-transform: capitalize;
   }
 
+  .container {
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+  }
+
   .center {
     display: flex;
     flex-direction: column;
