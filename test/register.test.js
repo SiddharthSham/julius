@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
-import Hello from './register.vue'
-import Foo from './register.vue'
+import Hello from '../pages/auth/register.vue'
+import Foo from '../pages/auth/register.vue'
 
 test('Hello', () => {
   // render the component

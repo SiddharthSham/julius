@@ -1,5 +1,5 @@
-import Component from './login'
-import Login from './login';
+import Component from '../pages/auth/login.vue'
+import Login from '../pages/auth/login.vue';
 import {shallow, mount, shallowMount } from '@vue/test-utils';
 describe('Component', () => {
 

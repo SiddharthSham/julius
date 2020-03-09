@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import FancyHeading from './index.vue';
+import FancyHeading from '../pages/index.vue';
 
 function mountComponentWithProps (Component, propsData) {
   const Constructor = Vue.extend(Component);
