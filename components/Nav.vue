@@ -20,9 +20,9 @@
       </div>
 
       <div class="navbar-end">
-        <a class="navbar-item">
+        <nuxt-link class="navbar-item" to="/about">
           About
-        </a>
+        </nuxt-link>
 
         <a class="navbar-item">
           Help
