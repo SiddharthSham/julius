@@ -54,7 +54,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     [
-      'nuxt-fire',
+      '@nuxtjs/firebase',
       {
         config: {
           apiKey: "AIzaSyClprWliE3UIWiJs31zw4jKNbNGPlbZJWI",
