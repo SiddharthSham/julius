@@ -14,11 +14,11 @@
         <p>Now you can apply for an elective change at your fingertips and also track the status of your elective change
           request.</p>
 
-        <p>Julius also brings to your notice the upcoming assesments in the respective electives and also resource
+        <p>We also brings to your notice the upcoming assesments in the respective electives and also resource
           materials
           for you to prepare well ;)</p>
 
-        <p>Julius also provies you the list of available electives and we are also currently working on a recommendation
+        <p>We also provies you the list of available electives and we are also currently working on a recommendation
           system
           that'd help you choose the best elective for you according to your preference and previous marks :)</p>
       </div>
