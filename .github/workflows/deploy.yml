@@ -14,7 +14,7 @@ jobs:
       run: |
         npm install
         npm run-script generate:gh-pages
-        git subtree push --prefix dist origin gh-pages
+        git subtree push --prefix dist "https://${{ secrets.GITHUB_ACTOR }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
