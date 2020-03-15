@@ -1,17 +1,24 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - master
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Create local changes
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Build
       run: |
-        npm run generate:gh-pages
-    - name: Commit files
-      run: |
-        git config --local user.email "siddhsham@github.com"
-        git config --local user.name "siddharthsham"
-        git commit -m "Add changes" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+        npm install
+        npm run-script generate:gh-pages
+        git subtree push --prefix dist origin gh-pages
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: dist
