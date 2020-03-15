@@ -11,7 +11,7 @@
     "generate": "nuxt generate",
     "test": "jest",
     "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
-    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate && mv dist docs",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
     "ghpages": "git push origin --delete gh-pages && git pull && git subtree push --prefix dist origin gh-pages"
   },
