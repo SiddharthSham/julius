@@ -13,7 +13,7 @@
     "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
     "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
-    "ghpages": "mv dist docs"
+    "ghpages": "git mv -f dist docs"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.8.5",
