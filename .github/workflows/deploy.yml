@@ -13,12 +13,10 @@ jobs:
     - name: Build
       run: |
         npm install
-        npm run-script generate:gh-pages
-        git subtree push --prefix dist "https://${{ secrets.GITHUB_ACTOR }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" gh-pages
+        npm run generate:gh-pages
 
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: dist
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
