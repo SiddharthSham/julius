@@ -212,7 +212,7 @@
                   console.log("Details stored!");
                   this.$router.push("/dashboard")
                 })
-                .catch((err) => {
+                .catch((error) => {
                   this.err = error
                   this.error()
                   console.error("Error writing document: ", error);
