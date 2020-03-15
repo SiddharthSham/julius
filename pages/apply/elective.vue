@@ -17,28 +17,22 @@
 
             <div class="pad-top subtitle is-family-monospace is-size-5">Course details:</div>
             <p class="content is-size-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ut tempora amet temporibus nam corrupti
-              culpa eveniet, facere dolores ipsa omnis unde labore voluptatem quia laborum. Mollitia reprehenderit hic
-              quisquam.
+              {{ electiveData.course_details ? electiveData.course_details : 'Details unavailable :(' }}
             </p>
 
             <div class="pad-top subtitle is-family-monospace is-size-5">Textbook and References:</div>
             <p class="content is-size-5">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure voluptatem sequi aliquid.
+              {{ electiveData.textbook ? electiveData.textbook : 'Textbooks unavailable :(' }}
             </p>
 
             <div class="pad-top subtitle is-family-monospace is-size-5">Syllabus:</div>
             <h6 class="is-size-6 has-text-weight-bold">UNIT 1</h6>
             <p class="content is-size-5">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus magnam nostrum ad voluptas distinctio
-              porro, enim minima ratione aperiam hic quos, ducimus sequi, architecto dolorem debitis reiciendis
-              assumenda vel. Quibusdam.
+              {{ electiveData.unit1 ? electiveData.unit1 : 'Unit 1 details unavailable :(' }}
             </p>
             <h6 class="is-size-6 has-text-weight-bold">UNIT 2</h6>
             <p class="content is-size-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam aut placeat iusto aspernatur dignissimos
-              sit voluptatibus in accusamus inventore. Dolore quam repellat laboriosam ipsam velit suscipit, eveniet
-              maiores fuga quaerat!
+              {{ electiveData.unit2 ? electiveData.unit2 : 'Unit 2 details unavailable :(' }}
             </p>
 
             <h6 class="is-size-6 has-text-weight-bold">AVAILABLE SEATS: 60/100</h6>
@@ -93,7 +87,12 @@
     },
     mounted() {
       let me = this
-      fireDb.collection("depts").doc('CSE').collection('6').doc(this.$store.state.user.chosenCourse).get()
+
+      fireDb.collection("depts")
+      .doc(this.$store.state.user.data.department)
+      .collection(String(this.$store.state.user.data.semester))
+      .doc(this.$store.state.user.chosenCourse)
+      .get()
         .then(function (doc) {
           if (doc.exists) {
             console.log("Document data:", doc.data());

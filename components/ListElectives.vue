@@ -1,9 +1,9 @@
 <template>
   <div class="elective-list">
     <div class="main-title is-size-3">Available Electives</div>
-    <article class="panel pad-top is-dark">
+    <article class="panel margin-top is-dark">
       <p class="panel-heading">
-        Semester 6 - CSE
+        Semester {{ semester }} - {{ dept }}
       </p>
 
       <div v-if="loading" class="panel-block">
@@ -18,7 +18,7 @@
           </div>
           <div class="level-right">
             <div class="buttons">
-              <button class="button is-light is-rounded is-primary"  @click="view(course.course_code)">View details</button>
+              <button class="button is-light is-rounded is-primary" @click="view(course.course_code)">View details</button>
             </div>
           </div>
         </div>
@@ -35,6 +35,10 @@
 
   export default {
     name: 'ListElectives',
+    props: [
+      'dept',
+      'semester'
+    ],
     data() {
       return {
         electives: [],
@@ -49,7 +53,7 @@
       }
     },
     mounted() {
-      fireDb.collection("depts").doc('CSE').collection('6').get()
+      fireDb.collection("depts").doc(this.dept).collection(String(this.semester)).get()
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
             this.electives.push(doc.data())
@@ -81,6 +85,10 @@
 
   .pad-right {
     margin-right: 1rem;
+  }
+
+  .margin-top {
+    margin-top: 1rem;
   }
 
 </style>

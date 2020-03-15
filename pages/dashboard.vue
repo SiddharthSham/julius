@@ -21,7 +21,7 @@
             </div>
           </div>
 
-          <div class="box pad-top">
+          <!-- <div class="box pad-top">
             <progress-steps/>
           </div>
 
@@ -31,10 +31,11 @@
 
           <div class="pad-top">
             <Resources/>
-          </div>
+          </div> -->
 
           <div class="pad-top">
-            <ListElectives/>
+            <ListElectives v-if="this.$store.state.user.data.semester" :semester="this.$store.state.user.data.semester" :dept="this.$store.state.user.data.department"/>
+            <h1 v-else>Loading...</h1>
           </div>
 
         </div>
