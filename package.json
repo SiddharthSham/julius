@@ -11,9 +11,9 @@
     "generate": "nuxt generate",
     "test": "jest",
     "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
-    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate && mv dist docs",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
-    "ghpages": "git push origin --delete gh-pages && git pull && git subtree push --prefix dist origin gh-pages"
+    "ghpages": "mv dist docs"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.8.5",
