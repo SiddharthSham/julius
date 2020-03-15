@@ -205,7 +205,8 @@
                   rollno: this.rollno,
                   category: this.category,
                   semester: this.semester,
-                  department: this.department
+                  department: this.department,
+                  applicationStatus: 0
                 })
                 .then(() => {
                   console.log("Details stored!");

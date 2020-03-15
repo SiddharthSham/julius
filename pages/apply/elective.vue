@@ -8,7 +8,8 @@
         </div>
         <div class="column dash" v-if="this.$store.state.user.chosenCourse">
           <div class="box">
-            <div class="main-title is-size-3">Applying to: {{ this.$store.state.user.chosenCourse }} - {{ electiveData.title }}</div>
+            <div class="main-title is-size-3">Applying to: {{ this.$store.state.user.chosenCourse }} -
+              {{ electiveData.title }}</div>
 
             <div class="tags">
               <span class="tag is-warning is-light is-rounded">3 credits</span>
@@ -39,7 +40,8 @@
             <progress class="progress is-success pad-top-s" value="60" max="100">60%</progress>
 
             <div class="buttons">
-              <button class="button is-rounded is-light is-primary" :class="{ 'is-loading': applying }" @click="apply">Apply now</button>
+              <button class="button is-rounded is-light is-primary" :class="{ 'is-loading': applying }"
+                @click="apply">Apply now</button>
               <nuxt-link to="/dashboard" class="button is-rounded is-light is-info ">
                 Go back
               </nuxt-link>
@@ -89,10 +91,10 @@
       let me = this
 
       fireDb.collection("depts")
-      .doc(this.$store.state.user.data.department)
-      .collection(String(this.$store.state.user.data.semester))
-      .doc(this.$store.state.user.chosenCourse)
-      .get()
+        .doc(this.$store.state.user.data.department)
+        .collection(String(this.$store.state.user.data.semester))
+        .doc(this.$store.state.user.chosenCourse)
+        .get()
         .then(function (doc) {
           if (doc.exists) {
             console.log("Document data:", doc.data());
@@ -110,6 +112,7 @@
       },
       cancel() {
         this.$modal.hide('application')
+        this.$router.push('/dashboard')
       },
       apply() {
         this.applying = true
@@ -130,6 +133,14 @@
           .then(() => {
             console.log('Applied succesfully to:', me.$store.state.user.chosenCourse)
             this.status = 'Application successfull!'
+            fireDb.collection("users").doc(currentUser).update({
+              applicationStatus: 1
+            }).then(() => {
+              fireDb.collection("users").doc(currentUser).get()
+                .then(doc => {
+                  this.$store.commit('user/setUserData', doc.data())
+                })
+            })
           })
           .catch(function (error) {
             console.log("Error applying to elective:", error);
