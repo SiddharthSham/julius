@@ -36,8 +36,8 @@
               {{ electiveData.unit2 ? electiveData.unit2 : 'Unit 2 details unavailable :(' }}
             </p>
 
-            <h6 class="is-size-6 has-text-weight-bold">AVAILABLE SEATS: 60/100</h6>
-            <progress class="progress is-success pad-top-s" value="60" max="100">60%</progress>
+            <h6 class="is-size-6 has-text-weight-bold">AVAILABLE SEATS: {{this.$store.state.user.chosenCourseCount}}/60</h6>
+            <progress class="progress is-success pad-top-s" :value="this.$store.state.user.chosenCourseCount" max="60">{{this.$store.state.user.chosenCourse/60 * 100}}</progress>
 
             <div class="buttons">
               <button class="button is-rounded is-light is-primary" :class="{ 'is-loading': applying }"

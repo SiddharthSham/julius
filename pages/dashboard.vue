@@ -30,7 +30,8 @@
                   <progress-steps />
                 </div>
                 <ListElectives v-if="this.$store.state.user.data.semester"
-                  :semester="this.$store.state.user.data.semester" :dept="this.$store.state.user.data.department" />
+                  :semester="this.$store.state.user.data.semester" :dept="this.$store.state.user.data.department"
+                  :count="count" />
               </div>
 
               <div v-else-if="this.$store.state.user.data.applicationStatus == 2">
@@ -80,6 +81,26 @@
       Resources,
       ListElectives,
       ProgressSteps
+    },
+    data() {
+      return {
+        count: {}
+      }
+    },
+    mounted() {
+      fireDb.collection("applications").doc('pending')
+      .onSnapshot(data => {
+          let temp = data.data().applicationData
+          let applicants = Object.keys(temp)
+          applicants.forEach(element => {
+            let id = temp[element]['course_id']
+            if (this.count[id] != null) {
+              this.count[id] += 1
+            } else {
+              this.count[id] = 1
+            }
+          });
+        });
     }
   }
 

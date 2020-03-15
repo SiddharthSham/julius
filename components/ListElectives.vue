@@ -13,7 +13,7 @@
       <div v-for="course in electives" :key="course.course_code" class="panel-block">
         <div class="level">
           <div class="level-left">
-            <span class="tag is-rounded is-warning is-light pad-right"> {{ course.credits }} credits </span>
+            <span class="tag is-rounded is-warning is-light pad-right"> {{ count[course.course_code] || 0 }} applications </span>
             {{ course.course_code }} - {{ course.title }}
           </div>
           <div class="level-right">
@@ -37,7 +37,8 @@
     name: 'ListElectives',
     props: [
       'dept',
-      'semester'
+      'semester',
+      'count'
     ],
     data() {
       return {
@@ -48,7 +49,11 @@
     },
     methods: {
       view(course_code) {
-        this.$store.commit('user/setChosenCourse', course_code)
+        let course = {
+          'code': course_code,
+          'count': this.count[course_code]
+        }
+        this.$store.commit('user/setChosenCourse', course )
         this.$router.push('/apply/elective')
       }
     },
