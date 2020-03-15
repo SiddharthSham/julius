@@ -14,7 +14,7 @@ jobs:
       run: |
         npm install
         npm run-script generate:gh-pages
-        npm run deploy
+        npm run ghpages
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
