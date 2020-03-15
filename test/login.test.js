@@ -24,7 +24,7 @@ describe('Login Component', () => {
  })
 })
 
-describe("Login", () => {
+describe("Login has a button", () => {
   
 
   test("Has a button", () => {

@@ -12,4 +12,8 @@ describe('Nav', () => {
     expect(wrapper.contains('.navbar-brand')).toBe(true)
   })
 
+  test('renders correctly', () => {
+    expect(wrapper.element).toMatchSnapshot()
+  })
+
 })
