@@ -3,7 +3,7 @@
   <main class="hero is-fullheight">
 
     <div class="hero-body">
-      <h1 class="is-size-1 has-text-centered main-title">Hello World!. I'm Julius the App.</h1>
+      <h1 class="is-size-1 has-text-centered main-title">Hello World. I'm Julius the App.</h1>
 
       <p class="is-size-4 has-text-centered is-family-monospace">Speed one terahertz, memory one gigabyte.</p>
 
