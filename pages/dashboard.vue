@@ -76,8 +76,12 @@
           </div>
 
           <!-- teachers panel -->
-          <div v-else>
+          <div v-else-if="this.$store.state.user.data.category == 'teacher'">
             <ApproveElective />
+          </div>
+
+          <div v-else>
+            <h1 class="is-size-3">Loading...</h1>
           </div>
 
 
